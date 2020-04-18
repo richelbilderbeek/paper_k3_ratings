@@ -1,0 +1,25 @@
+Package: tmp
+Title: Travis Make Pdflatex
+Version: 1.0
+Authors@R: 
+    person(given = "Richel",
+           family = "Bilderbeek",
+           role = c("aut", "cre"),
+           email = "richel@richelbilderbeek.nl")
+Description:
+    There are multiple ways 
+    to make a PDF from a LaTeX file on Travis.
+    One way is to use the R language,
+    because that language has 'pdflatex'
+    nicely built in.
+    This file is only there to allow for using
+    the R language.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.0.2
+Imports:
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
+

@@ -1,0 +1,11 @@
+language: r
+
+script:
+  - make
+
+after_script:
+  # The file should be created
+  - if [[ ! -f "article.pdf" ]]; then echo "File 'article.pdf' not created "; exit 1; fi
+  # After a make, all should be done
+  - if [ "$(make)" != "make: Nothing to be done for 'all'." ]; then echo "second make should do nothing"; exit 1; fi
+
