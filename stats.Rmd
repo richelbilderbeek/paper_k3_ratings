@@ -1,0 +1,109 @@
+---
+title: "K3 article"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Setup
+
+```{r}
+library(ggplot2)
+library(testthat)
+```
+
+## Preparation
+
+```{r}
+get_verdict <- function(p_value, alpha) {
+  if (p_value < alpha) {
+    return ("Different distributions")
+  }
+  "Same distributions"
+}
+```
+
+```{r}
+t <- wilcox.test(
+  x = seq(from = 1, to = 10, length.out = 10),
+  y = seq(from = 1, to = 10, length.out = 20), 
+  alternative = "two.sided"
+)
+expect_equal(
+  get_verdict(p_value = t$p.value, alpha = 0.05),
+  "Same distributions"
+)
+```
+
+```{r}
+t <- wilcox.test(
+  x = seq(from = 1, to = 5, length.out = 10),
+  y = seq(from = 5, to = 10, length.out = 20), 
+  alternative = "two.sided"
+)
+expect_equal(
+  get_verdict(p_value = t$p.value, alpha = 0.05),
+  "Different distributions"
+)
+```
+
+## Data
+
+```{r}
+set.seed(42)
+ratings_1 <- runif(n = 10, min = 1.0, max = 10.0)
+ratings_2 <- runif(n = 5, min = 1.0, max = 10.0)
+```
+
+## Stats
+
+```{r}
+alpha <- 0.05
+```
+
+```{r}
+t <- wilcox.test(
+  x = ratings_1, 
+  y = ratings_2, 
+  alternative = "two.sided"
+)
+m <- matrix(
+  data = c(
+    "p_value", t$p.value,
+    "alternative", t$alternative,
+    "method", t$method,
+    "data.name", t$data.name,
+    "verdict", get_verdict(p_value = t$p.value, alpha = alpha)
+  ),
+  ncol = 2,
+  byrow = TRUE
+)
+colnames(m) <- c("parameter", "value")
+df <- tibble::as_tibble(m)
+names(df) <- c("parameter", "value")
+write.csv(df, "stats.csv", row.names = FALSE)
+knitr::kable(df)
+```
+
+## Plot
+
+```{r}
+df <- tibble::tibble(
+  formation = c(
+    rep(1, length(ratings_1)), 
+    rep(2, length(ratings_2))
+  ),
+  rating = c(ratings_1, ratings_2)
+)
+df$formation <- as.factor(df$formation)
+ggplot(df, aes(x = formation, y = rating)) + 
+  geom_boxplot() +
+  scale_y_continuous(
+    limits = c(1, 10), 
+    breaks = seq(1, 10)
+  ) +
+  ggsave("figure_1.png", width = 7, height = 7)
+```
+

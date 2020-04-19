@@ -53,19 +53,18 @@ have rated K3 songs.
 
 \paragraph{Statistical test}
 We do not assume that the 
-ratings follows a normal distribution. Due to this,
+ratings follows a normal distribution. 
+Due to this,
 we use a Mann-Whitney U test to test if
 the distributions are the same.
 We will be using a value of alpha of 0.05,
 because there has not been done any previous
 research on this.
 
-\paragraph{Rejection or acception of hypothesis}
 If the p value if below the alpha value,
-the hypothesis is accepted, making us conclude
-that the groups are equally enjoyable.
-Else, we will reject the null hypothesis
-and conclude the groups differ in enjoyability.
+the groups are differently enjoyable.
+Else, we will conclude the groups 
+are equally enjoyability.
 
 \section{Results}
 
@@ -94,6 +93,11 @@ group is more enjoyable.
 
 \section{Discussion}
 
+The Mann-Whitney U test cannot calculate
+the exact p-value for values that are identical
+between the two samples. We expect this is
+not a problem.
+
 We obtained the data from the reviews done
 by only two people. This may results in
 a bias. 
@@ -103,4 +107,14 @@ songs have been reviewed.
 Because it is the only data
 set available, there is no other option.
 
+\section{Supplementary materials}
+
+\begin{table}
+  \input{stats.latex}
+  \caption{
+    Stats
+  }
+  \label{table:stats}
+\end{table}
+ 
 \end{document}
