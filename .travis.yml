@@ -1,5 +1,8 @@
 language: r
 
+install:
+  - sudo apt install csv2latex
+
 script:
   - make
 
