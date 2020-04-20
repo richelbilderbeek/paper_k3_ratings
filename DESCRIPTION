@@ -22,5 +22,6 @@ Imports:
     ggplot2,
     knitr,
     rmarkdown,
+    stringr,
     testthat
 

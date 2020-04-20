@@ -10,7 +10,7 @@ r_packages:
 install:
   - sudo apt install csv2latex
 
-script:
+after_script:
   - make
 
 after_script:
