@@ -10,8 +10,10 @@ r_packages:
   - testthat
 
 install:
-  - sudo apt install r-cran-rmarkdown
+  - sudo apt install r-cran-rmarkdown r-cran-ggplot2 r-cran-testthat
   - sudo apt install csv2latex
+
+
 
 script:
   - travis_wait 30 R CMD build .
