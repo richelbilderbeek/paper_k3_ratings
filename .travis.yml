@@ -1,5 +1,12 @@
 language: r
 
+r_packages:
+  - ggplot2
+  - knitr
+  - rmarkdown
+  - stringr
+  - testthat
+
 install:
   - sudo apt install csv2latex
 
