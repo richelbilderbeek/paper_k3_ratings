@@ -78,6 +78,55 @@ expect_equal(
 ```
 
 ```{r}
+get_richels_rating <- function(filename) {
+  testthat::expect_true(file.exists(filename))
+  text <- readLines(filename, warn = FALSE)
+  is_found_indices <- stringr::str_detect(text, pattern = "Richel's rating:.*")
+  if (sum(is_found_indices) == 0) return("Not found")
+  if (sum(is_found_indices) == 2) return("Found twice")
+  rating_text <- text[is_found_indices]
+  rating <- stringr::str_match(
+    string = rating_text, 
+    pattern = "Richel's rating: (..?).10"
+  )[1,2]
+  if (is.na(rating)) return("Unknown rating")
+  as.numeric(rating)
+}
+expect_equal(
+  8, get_richels_rating("K3Reviews/reviews/FransLiedje.md")
+)
+expect_equal(
+  9, 
+  get_richels_rating("K3Reviews/reviews/EnIkDans.md")
+)
+```
+
+```{r}
+get_marks_rating <- function(filename) {
+  testthat::expect_true(file.exists(filename))
+  text <- readLines(filename, warn = FALSE)
+  is_found_indices <- stringr::str_detect(text, pattern = "Mark's rating:.*")
+  if (sum(is_found_indices) == 0) return("Not found")
+  if (sum(is_found_indices) == 2) return("Found twice")
+  rating_text <- text[is_found_indices]
+  rating <- stringr::str_match(
+    string = rating_text, 
+    pattern = "Mark's rating: (..?).10"
+  )[1,2]
+  if (is.na(rating)) return("Unknown rating")
+  as.numeric(rating)
+}
+expect_equal(
+  6, get_marks_rating(filename = "K3Reviews/reviews/Beroemd.md")
+)
+expect_equal(
+  0, 
+  get_marks_rating("K3Reviews/reviews/EyaHoya.md")
+)
+```
+
+
+```{r}
 get_formations <- function(filenames) {
   testthat::expect_true(all(file.exists(filenames)))
   formations <- rep("", length(filenames))
@@ -89,12 +138,59 @@ get_formations <- function(filenames) {
 ```
 
 ```{r}
+get_richels_ratings <- function(filenames) {
+  testthat::expect_true(all(file.exists(filenames)))
+  richels_ratings <- rep(0, length(filenames))
+  for (i in seq_along(filenames)) {
+    richels_ratings[i] <- get_richels_rating(filenames[i])
+  }
+  richels_ratings
+}
+```
+
+```{r}
+get_marks_ratings <- function(filenames) {
+  testthat::expect_true(all(file.exists(filenames)))
+  marks_ratings <- rep(0, length(filenames))
+  for (i in seq_along(filenames)) {
+    marks_ratings[i] <- get_marks_rating(filenames[i])
+  }
+  marks_ratings
+}
+```
+
+```{r}
 filenames <- list.files(path = "K3Reviews/reviews", pattern = "*.md", full.names = TRUE)
-df <- data.frame(file = filenames, formation = get_formations(filenames))
+df <- data.frame(
+  file = filenames, 
+  formation = get_formations(filenames),
+  richels_rating = get_richels_ratings(filenames),
+  marks_rating = get_marks_ratings(filenames)
+)
 df$formation <- as.factor(df$formation)
+```
+
+Plots:
+
+```{r}
 ggplot(df, aes(x = formation)) +
   geom_histogram(stat = "count") +
   ggsave("formations.png", width = 7, height = 7)
+```
+
+```{r}
+df$richels_rating <- as.numeric(df$richels_rating)
+ggplot(df, aes(x = "" , y = richels_rating)) +
+  geom_boxplot() +
+  ggtitle("Richel's ratings") +
+  ggsave("richels_ratings.png", width = 7, height = 7)
+```
+```{r}
+df$marks_rating <- as.numeric(df$marks_rating)
+ggplot(df, aes(x = "" , y = marks_rating)) +
+  geom_boxplot() +
+  ggtitle("Marks's ratings") +
+  ggsave("marks_ratings.png", width = 7, height = 7)
 ```
 
 
