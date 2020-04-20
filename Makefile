@@ -12,3 +12,8 @@ figure_1.png: stats.Rmd
 stats.latex: stats.csv
 	csv2latex stats.csv --nohead > stats.latex
 
+stats.Rmd: K3Reviews/README.md
+
+K3Reviews/README.md:
+	git clone https://github.com/richelbilderbeek/K3Reviews
+
