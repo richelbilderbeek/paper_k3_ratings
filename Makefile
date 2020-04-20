@@ -1,6 +1,6 @@
 all: article.pdf
 
-article.pdf: article.tex stats.latex figure_1.png
+article.pdf: article.tex stats.latex figure_1.png formations.png
 	pdflatex article.tex
 
 stats.csv: stats.Rmd
@@ -16,4 +16,7 @@ stats.Rmd: K3Reviews/README.md
 
 K3Reviews/README.md:
 	git clone https://github.com/richelbilderbeek/K3Reviews
+
+formations.png: stats.Rmd K3Reviews/README.md
+	Rscript -e 'rmarkdown::render("stats.Rmd")'
 

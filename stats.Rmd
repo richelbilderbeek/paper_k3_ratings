@@ -52,6 +52,55 @@ expect_equal(
 ## Data
 
 ```{r}
+get_formation <- function(filename) {
+  testthat::expect_true(file.exists(filename))
+  text <- readLines(filename, warn = FALSE)
+  is_found_indices <- stringr::str_detect(text, pattern = "Formation:.*")
+  if (sum(is_found_indices) == 0) return("Not found")
+  if (sum(is_found_indices) == 2) return("Found twice")
+  formation_text <- text[is_found_indices]
+  formation <- stringr::str_match(string = formation_text, pattern = "KKK|JKK|HKM")[1,1]
+  if (is.na(formation)) return("Unknown formation")
+  formation
+  
+}
+expect_equal(
+  "KKK", get_formation("K3Reviews/reviews/FransLiedje.md")
+)
+expect_equal(
+  "JKK", 
+  get_formation("K3Reviews/reviews/EnIkDans.md")
+)
+expect_equal(
+  "HKM", 
+  get_formation("K3Reviews/reviews/10000Luchtballonnen.md")
+)
+```
+
+```{r}
+get_formations <- function(filenames) {
+  testthat::expect_true(all(file.exists(filenames)))
+  formations <- rep("", length(filenames))
+  for (i in seq_along(filenames)) {
+    formations[i] <- get_formation(filenames[i])
+  }
+  formations
+}
+```
+
+```{r}
+filenames <- list.files(path = "K3Reviews/reviews", pattern = "*.md", full.names = TRUE)
+df <- data.frame(file = filenames, formation = get_formations(filenames))
+df$formation <- as.factor(df$formation)
+ggplot(df, aes(x = formation)) +
+  geom_histogram(stat = "count") +
+  ggsave("formations.png", width = 7, height = 7)
+```
+
+
+Artifical data:
+
+```{r}
 set.seed(42)
 ratings_1 <- runif(n = 10, min = 1.0, max = 10.0)
 ratings_2 <- runif(n = 5, min = 1.0, max = 10.0)
