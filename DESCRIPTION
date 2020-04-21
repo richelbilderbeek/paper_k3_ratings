@@ -24,4 +24,5 @@ Imports:
     rmarkdown,
     stringr,
     testthat
+VignetteBuilder: knitr
 
