@@ -52,163 +52,17 @@ expect_equal(
 ## Data
 
 ```{r}
-get_formation <- function(filename) {
-  testthat::expect_true(file.exists(filename))
-  text <- readLines(filename, warn = FALSE)
-  is_found_indices <- stringr::str_detect(text, pattern = "Formation:.*")
-  if (sum(is_found_indices) == 0) return("Not found")
-  if (sum(is_found_indices) == 2) return("Found twice")
-  formation_text <- text[is_found_indices]
-  formation <- stringr::str_match(string = formation_text, pattern = "KKK|JKK|HKM")[1,1]
-  if (is.na(formation)) return("Unknown formation")
-  formation
-  
-}
-expect_equal(
-  "KKK", get_formation("K3Reviews/reviews/FransLiedje.md")
-)
-expect_equal(
-  "JKK", 
-  get_formation("K3Reviews/reviews/EnIkDans.md")
-)
-expect_equal(
-  "HKM", 
-  get_formation("K3Reviews/reviews/10000Luchtballonnen.md")
-)
-```
-
-```{r}
-get_rating <- function(name, filename) {
-  testthat::expect_true(file.exists(filename))
-  text <- readLines(filename, warn = FALSE)
-  is_found_indices <- stringr::str_detect(text, pattern = paste0(name, "'s rating:.*"))
-  if (sum(is_found_indices) == 0) return("Not found")
-  if (sum(is_found_indices) == 2) return("Found twice")
-  rating_text <- text[is_found_indices]
-  rating <- stringr::str_match(
-    string = rating_text, 
-    pattern = paste0(name, "'s rating: (..?).10")
-  )[1,2]
-  if (is.na(rating)) return("Unknown rating")
-  if (rating == "?") return("No rating")
-  as.numeric(rating)
-}
-expect_equal(
-  8, get_rating("Richel", "K3Reviews/reviews/FransLiedje.md")
-)
-expect_equal(
-  9, 
-  get_rating("Richel", "K3Reviews/reviews/EnIkDans.md")
-)
-expect_equal(
-  "No rating", 
-  get_rating("Richel", "K3Reviews/reviews/PuppyLove.md")
-)
-expect_equal(
-  "No rating", 
-  get_rating("Richel", "K3Reviews/reviews/AlleBabys.md")
-)
-```
-
-
-```{r}
-get_richels_rating <- function(filename) {
-  get_rating(name = "Richel", filename = filename)
-}
-expect_equal(
-  8, get_richels_rating("K3Reviews/reviews/FransLiedje.md")
-)
-expect_equal(
-  9, 
-  get_richels_rating("K3Reviews/reviews/EnIkDans.md")
-)
-expect_equal(
-  "No rating", 
-  get_richels_rating(filename = "K3Reviews/reviews/PuppyLove.md")
-)
-```
-
-```{r}
-get_marks_rating <- function(filename) {
-  get_rating("Mark", filename)
-}
-expect_equal(
-  6, get_marks_rating(filename = "K3Reviews/reviews/Beroemd.md")
-)
-expect_equal(
-  0, 
-  get_marks_rating("K3Reviews/reviews/EyaHoya.md")
-)
-```
-
-```{r}
-get_formations <- function(filenames) {
-  testthat::expect_true(all(file.exists(filenames)))
-  formations <- rep("", length(filenames))
-  for (i in seq_along(filenames)) {
-    formations[i] <- get_formation(filenames[i])
-  }
-  formations
-}
-```
-
-```{r}
-get_richels_ratings <- function(filenames) {
-  testthat::expect_true(all(file.exists(filenames)))
-  richels_ratings <- rep(0, length(filenames))
-  for (i in seq_along(filenames)) {
-    richels_ratings[i] <- get_richels_rating(filenames[i])
-  }
-  richels_ratings
-}
-```
-
-```{r}
-get_marks_ratings <- function(filenames) {
-  testthat::expect_true(all(file.exists(filenames)))
-  marks_ratings <- rep(0, length(filenames))
-  for (i in seq_along(filenames)) {
-    marks_ratings[i] <- get_marks_rating(filenames[i])
-  }
-  marks_ratings
-}
-```
-
-
-```{r}
-get_ratings <- function(filenames) {
-  df_richel <- data.frame(
-    filename = filenames, 
-    formation = get_formations(filenames),
-    rating = get_richels_ratings(filenames),
-    reviewer = "Richel"
-  )
-  df_mark <- data.frame(
-    filename = filenames, 
-    formation = get_formations(filenames),
-    rating = get_marks_ratings(filenames),
-    reviewer = "Mark"
-  )
-  df <- rbind(df_richel, df_mark)
-  df$filename <- as.character(df$filename)
-  df$rating <- as.character(df$rating)
-  df$formation <- as.character(df$formation)
-  df$reviewer <- as.factor(df$reviewer)
-  df
-}
-filenames <- c(
-  "K3Reviews/reviews/FransLiedje.md",
-  "K3Reviews/reviews/EnIkDans.md",
-  "K3Reviews/reviews/Beroemd.md",
-  "K3Reviews/reviews/EyaHoya.md"
-)
+filenames <- k3reviews::get_all_song_filenames()
 df <- get_ratings(filenames)
-expect_equal(nrow(df), 8)
+writeLines(
+  text = basename(df$filename[ df$formation == "Not found" ]),
+  "~/todo.txt"
+)
+
 ```
 
 ```{r}
-filenames <- list.files(path = "K3Reviews/reviews", pattern = "*.md", full.names = TRUE)
-df <- get_ratings(filenames)
+df$filename[is.na(df$rating)]
 ```
 
 Plots:
@@ -302,3 +156,4 @@ ggplot(df, aes(x = formation, y = rating)) +
   ggsave("figure_1.png", width = 7, height = 7)
 ```
 
+## TODO
