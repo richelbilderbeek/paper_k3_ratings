@@ -53,7 +53,7 @@ expect_equal(
 
 ```{r}
 filenames <- k3reviews::get_all_song_filenames()
-df <- get_ratings(filenames)
+df <- k3reviews::get_ratings(filenames)
 writeLines(
   text = basename(df$filename[ df$formation == "Not found" ]),
   "~/todo.txt"
