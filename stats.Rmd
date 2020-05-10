@@ -53,22 +53,13 @@ expect_equal(
 
 ```{r}
 filenames <- k3reviews::get_all_song_filenames()
-df <- k3reviews::get_ratings(filenames)
-writeLines(
-  text = basename(df$filename[ df$formation == "Not found" ]),
-  "~/todo.txt"
-)
-
-```
-
-```{r}
-df$filename[is.na(df$rating)]
+df <- k3reviews::get_songs_ratings(filenames)
 ```
 
 Plots:
 
 ```{r}
-ggplot(df, aes(x = formation)) +
+ggplot(na.omit(df), aes(x = formation)) +
   geom_histogram(stat = "count") +
   ggsave("formations.png", width = 7, height = 7)
 ```
