@@ -30,16 +30,7 @@ starting in around ?1990.
 The band consists out of three girls
 and has had four formations, where some
 members are part of multiple formations.
-See Table 1 for the K3 formations.
-
-Formation||Members
----------|-----------------------
-1        |Karen, Kristel,Kathleen
-2        |Josje, Karen, Kathleen
-3        |Hanne, Klaasje, Marthe
-4        |Hanne, Julia, Marthe
-
-> Table 1: K3 formations
+See [formations.md](formations.md) for the K3 formations.
 
 Rumors on internet fora claim that the new
 formation is worse. Their music would be
@@ -59,6 +50,8 @@ as the old formation.
 
 ### Data set
 
+#### Ratings
+
 We obtain ratings (which are values from
 1 to 10, where 1 is worst and 10 is best)
 from two websites in which fans
@@ -66,18 +59,16 @@ have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
 
-Rating|Name|Song
-------|----|----
-.     |.   |.
-.     |.   |.
+The table with ratings can be found at [ratings.md](ratings.md)
 
-> Table 2: Table of ratings
+#### Songs
 
-Formation|Song
----------|---------------------
-3        |10000 Luchtballonnen
+The dataset is based on the 22 studio CDs.
+Each CD has a formation visible on the
+CD cover.
+The table with CD title and formation can be found at [cds.md](cds.md).
 
-> Table 3: Table of songs that are unique for a formation
+The table with songs can be found at [songs.md](songs.md).
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
