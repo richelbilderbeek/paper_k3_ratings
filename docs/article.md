@@ -13,8 +13,6 @@ It was found that band members do/don't
 influence the perceived quality of the song.
 
 
-
-
 ## Introduction
 
 K3 is a famous Flemish music group.
@@ -24,7 +22,7 @@ than the old one.
 Here, we investigate if that claim is true,
 based on reviews of their music before
 and after the new formation.
-We find that the new formation is 
+We find that the new formation is
 [worse/equal/better].
 
 K3 is a famous Flemish music group
@@ -62,7 +60,7 @@ as the old formation.
 ### Data set
 
 We obtain ratings (which are values from
-1 to 10, where 1 is worst and 10 is best) 
+1 to 10, where 1 is worst and 10 is best)
 from two websites in which fans
 have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
@@ -86,7 +84,7 @@ The collected datasets can be downloaded from
 
 ### Statistical test
 
-We do not assume that the 
+We do not assume that the
 ratings follows a normal distribution,
 as we think it is likelier that fans
 rate a song with the more extreme ratings.
