@@ -15,40 +15,45 @@ influence the perceived quality of the song.
 
 ## Introduction
 
-K3 is a famous Flemish music group.
-Recently they have changed their formation.
-Rumors claim that the new formation is worse
-than the old one.
-Here, we investigate if that claim is true,
-based on reviews of their music before
-and after the new formation.
-We find that the new formation is
-[worse/equal/better].
+What is the effect that members of a
+music band have on the perceived quality
+on their songs, when these songs
+are written by others?
+Do the song writers adapt to the band members
+in a noticable way?
 
-K3 is a famous Flemish music group
-starting in around ?1990.
-The band consists out of three girls
-and has had four formations, where some
-members are part of multiple formations.
-See [formations.md](formations.md) for the K3 formations.
+This has been a burning for the Flemish music group
+called K3, which is a famous Flemish/Dutch music group
+that currently is in its fourth formation
+and has produced 22 CDs, with mostly the
+exact same group of writers.
 
-Rumors on internet fora claim that the new
-formation is worse. Their music would be
-worse. It is unknown if these rumor are true.
-
-In this research, we will test if the new
-formation produces music that is as enjoyable
-as the old formation.
+This research tries to conclude if a certain formation
+did better or worse.
 
 ## Hypothesis
 
-- H0: the songs unique to each K3 formation
+- H1: the songs unique to each K3 formation
   have the same distribution in their ratings
+- H2: the songs unique to each K3 formation
+  have the same distribution in their ratings,
+  if the songs compared have the same writers
 
 ## Methods
 
-
 ### Data set
+
+For the information on K3, the R package `heyahmama` is used.
+This package contains a list of all 22 studio CDs,
+the formation for that CD and the song titles on each CD.
+The table with CD title and formation can be found at [cds.md](cds.md).
+The table with songs can be found at [songs.md](songs.md).
+
+### Song selection
+
+For hypothesis 1, all songs that are unique to a formation
+are used. For hypothesis 2, only songs are used that
+are written by the exact same group of text writers.
 
 #### Ratings
 
@@ -59,16 +64,7 @@ have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
 
-The table with ratings can be found at [ratings.md](ratings.md)
-
-#### Songs
-
-The dataset is based on the 22 studio CDs.
-Each CD has a formation visible on the
-CD cover.
-The table with CD title and formation can be found at [cds.md](cds.md).
-
-The table with songs can be found at [songs.md](songs.md).
+The table with ratings can be found at [ratings.md](ratings.md).
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
