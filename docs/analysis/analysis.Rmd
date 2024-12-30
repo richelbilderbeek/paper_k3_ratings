@@ -29,6 +29,96 @@ library(testthat)
 ## Reading the data
 
 ```{r}
-t <- readr::read_csv("ratings.csv")
+ratings <- readr::read_csv("ratings.csv", show_col_types = FALSE)
+n_ratings <- nrow(ratings)
+```
+
+There are `r n_ratings` ratings.
+
+## Analysis
+
+Connecting the ratings to the formations:
+
+```{r}
+songs <- dplyr::select(heyahmama::get_songs(), cd_title, song_title)
+n_songs <- nrow(songs)
+```
+
+There are `r n_songs` songs.
+
+```{r}
+cds <- dplyr::select(heyahmama::get_cds(), cd_title, formation)
+n_cds <-nrow(cds)
+```
+
+There are `r n_cds` CDs.
+
+```{r}
+songs_per_formation <- dplyr::select(merge(songs, cds), song_title, formation)
+
+# Not yet
+# testthat::expect_equal(n_songs, nrow(songs_per_formation))
+if (n_songs != nrow(songs_per_formation)) {
+  warning("Not all songs are found to be on a CD")
+}
+
+knitr::kable(head(songs_per_formation))
+```
+
+Add the formations to the ratings:
+
+```{r}
+ratings_per_formation <- dplyr::select(merge(ratings, songs_per_formation), formation, rating)
+ratings_per_formation$formation <- as.factor(ratings_per_formation$formation)
+knitr::kable(head(ratings_per_formation))
+```
+
+Plot:
+
+```{r}
+ggplot2::ggplot(
+  ratings_per_formation,
+  ggplot2::aes(x = formation, y = rating)
+) + ggplot2::geom_violin()
+```
+
+Order formations by ratings:
+
+```{r}
+average_rating_per_formation <-
+  ratings_per_formation |> dplyr::group_by(formation) |> dplyr::summarise(average_rating = mean(rating))
+
+ordered_average_rating_per_formation <-  average_rating_per_formation |> dplyr::arrange(dplyr::desc(average_rating))
+
+knitr::kable(ordered_average_rating_per_formation)
+```
+
+## Statistics
+
+Do the formations have different ratings?
+
+```{r}
+ratings_1 <- ratings_per_formation[ratings_per_formation$formation == 1, ]$rating
+ratings_2 <- ratings_per_formation[ratings_per_formation$formation == 2, ]$rating
+ratings_3 <- ratings_per_formation[ratings_per_formation$formation == 3, ]$rating
+ratings_4 <- ratings_per_formation[ratings_per_formation$formation == 4, ]$rating
+p_12 <- ks.test(ratings_1, ratings_2, alternative = "two.sided")$p.value
+p_13 <- ks.test(ratings_1, ratings_3, alternative = "two.sided")$p.value
+p_14 <- ks.test(ratings_1, ratings_4, alternative = "two.sided")$p.value
+p_23 <- ks.test(ratings_2, ratings_3, alternative = "two.sided")$p.value
+p_24 <- ks.test(ratings_2, ratings_4, alternative = "two.sided")$p.value
+p_34 <- ks.test(ratings_3, ratings_4, alternative = "two.sided")$p.value
+p_values_table <- tibble::tribble(
+  ~comparison, ~p_value,
+  "12", p_12,
+  "13", p_13,
+  "14", p_14,
+  "23", p_23,
+  "24", p_24,
+  "34", p_34
+)
+alpha <- 0.05
+p_values_table$is_the_same <- p_values_table$p_value > alpha
+knitr::kable(p_values_table)
 ```
 
