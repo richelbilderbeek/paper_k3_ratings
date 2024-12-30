@@ -5,6 +5,7 @@
 [![Check markdown](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_markdown.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_markdown.yaml)
 [![Check spelling](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_spelling.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_spelling.yaml)
 [![Create website](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/create_website.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/create_website.yaml)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14578277.svg)](https://doi.org/10.5281/zenodo.14578277)
 
 [Go to the nicely rendered page](https://richelbilderbeek.github.io/paper_k3_ratings/).
 
