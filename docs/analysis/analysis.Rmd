@@ -48,20 +48,15 @@ There are `r n_songs` songs.
 
 ```{r}
 cds <- dplyr::select(heyahmama::get_cds(), cd_title, formation)
-n_cds <-nrow(cds)
+n_cds <- nrow(cds)
+n_formations <- length(unique(cds$formation))
 ```
 
 There are `r n_cds` CDs.
 
 ```{r}
 songs_per_formation <- dplyr::select(merge(songs, cds), song_title, formation)
-
-# Not yet
-# testthat::expect_equal(n_songs, nrow(songs_per_formation))
-if (n_songs != nrow(songs_per_formation)) {
-  warning("Not all songs are found to be on a CD")
-}
-
+testthat::expect_equal(n_songs, nrow(songs_per_formation))
 knitr::kable(head(songs_per_formation))
 ```
 
@@ -69,6 +64,7 @@ Add the formations to the ratings:
 
 ```{r}
 ratings_per_formation <- dplyr::select(merge(ratings, songs_per_formation), formation, rating)
+testthat::expect_equal(n_ratings, nrow(ratings_per_formation))
 ratings_per_formation$formation <- as.factor(ratings_per_formation$formation)
 knitr::kable(head(ratings_per_formation))
 ```
@@ -86,9 +82,15 @@ Order formations by ratings:
 
 ```{r}
 average_rating_per_formation <-
-  ratings_per_formation |> dplyr::group_by(formation) |> dplyr::summarise(average_rating = mean(rating))
+  ratings_per_formation |> 
+  dplyr::group_by(formation) |> 
+  dplyr::summarise(average_rating = mean(rating))
+testthat::expect_equal(n_formations, nrow(average_rating_per_formation))
 
-ordered_average_rating_per_formation <-  average_rating_per_formation |> dplyr::arrange(dplyr::desc(average_rating))
+ordered_average_rating_per_formation <- 
+  average_rating_per_formation |> 
+  dplyr::arrange(dplyr::desc(average_rating))
+testthat::expect_equal(n_formations, nrow(ordered_average_rating_per_formation))
 
 knitr::kable(ordered_average_rating_per_formation)
 ```
@@ -98,6 +100,7 @@ knitr::kable(ordered_average_rating_per_formation)
 Do the formations have different ratings?
 
 ```{r}
+testthat::expect_equal(n_formations, 4)
 ratings_1 <- ratings_per_formation[ratings_per_formation$formation == 1, ]$rating
 ratings_2 <- ratings_per_formation[ratings_per_formation$formation == 2, ]$rating
 ratings_3 <- ratings_per_formation[ratings_per_formation$formation == 3, ]$rating
