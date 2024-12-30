@@ -1,0 +1,34 @@
+---
+title: "Analysis"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Analysis}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+In this document, we do the analysis presented in the paper.
+
+Currently, the analysis uses fake data.
+
+## Setup
+
+```{r}
+library(testthat)
+```
+
+## Reading the data
+
+```{r}
+t <- readr::read_csv("ratings.csv")
+```
+

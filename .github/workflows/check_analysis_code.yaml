@@ -1,0 +1,57 @@
+# Check that the code works
+name: Check dialogue code
+
+# Check this on the 16th day of the month.
+# 16th as the first letter of this repo is the 16th letter in the alphabet.
+
+# This job only concerns changes to a limited set of files.
+# Thanks to https://stackoverflow.com/a/63822945
+on:
+  push:
+    paths:
+      - docs/analysis/analysis.Rmd
+      - .github/workflows/check_analysis_code.yaml
+  pull_request:
+    paths:
+      - docs/analysis/analysis.Rmd
+      - .github/workflows/check_analysis_code.yaml
+  schedule:
+  - cron: "0 0 16 * *"
+
+
+jobs:
+  check-dialogue-code:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      #- name: Install pdflatex
+      #  run: sudo apt-get install texlive-latex-base texlive-latex-recommended
+
+      #- name: Get pdflatex version
+      #  run: pdflatex --version
+
+      - uses: r-lib/actions/setup-r@v2
+
+      - uses: r-lib/actions/setup-pandoc@v2
+
+      - name: Install dependencies
+        run: |
+            install.packages("remotes")
+            remotes::install_cran("tinytex")
+            tinytex::install_tinytex(force = TRUE)
+            remotes::install_cran("testthat")
+            remotes::install_cran("readr")
+            remotes::install_cran("stringr")
+            remotes::install_cran("ggplot2")
+            remotes::install_cran("dplyr")
+            remotes::install_cran("svglite")
+            remotes::install_cran("rmarkdown")
+            remotes::install_cran("knitr")
+
+        shell: Rscript {0}
+
+      - name: Run
+        run: ./scripts/create_rendered_versions_of_rmd_analysis.R
