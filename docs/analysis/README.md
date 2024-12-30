@@ -2,7 +2,7 @@
 
 The analysis can be found here:
 
-- [analysis.Rmd](https://github.com/richelbilderbeek/paper_critical_ai/blob/main/docs/analysis/analysis.Rmd):
+- [analysis.Rmd](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/docs/analysis/analysis.Rmd):
   the R markdown document
 
 From that document, these two are created using a script:

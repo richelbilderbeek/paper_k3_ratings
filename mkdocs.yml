@@ -8,6 +8,7 @@ nav:
   - Paper:
     - Paper: paper.md
   - Misc:
+    - Analysis: analysis/README.md
     - Code of conduct: CODE_OF_CONDUCT.md
     - Contributing: CONTRIBUTING.md
     - License: LICENSE.md
