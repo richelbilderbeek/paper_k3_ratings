@@ -1,5 +1,6 @@
 # k3_article
 
+[![Check dialogue code](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_analysis_code.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_analysis_code.yaml)
 [![Check links](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_links.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_links.yaml)
 [![Check markdown](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_markdown.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_markdown.yaml)
 [![Check spelling](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_spelling.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_spelling.yaml)
