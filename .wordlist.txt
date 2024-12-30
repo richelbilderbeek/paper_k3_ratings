@@ -39,3 +39,5 @@ pdf
 popjustice
 Rmd
 noticable
+cds
+datasets
