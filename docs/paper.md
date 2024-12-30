@@ -1,6 +1,6 @@
 # Does perceived song quality depend on band members for same composers?
 
-# Abstract
+## Abstract
 
 Some bands have had multiple formations,
 while using the same composers.
