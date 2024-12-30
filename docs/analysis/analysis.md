@@ -34,7 +34,6 @@ There are 22 CDs.
     if (n_songs != nrow(songs_per_formation)) {
       warning("Not all songs are found to be on a CD")
     }
-    #> Warning: Not all songs are found to be on a CD
 
     knitr::kable(head(songs_per_formation))
 
@@ -47,28 +46,28 @@ There are 22 CDs.
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1, 2, Doe met me mee</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">10.000 luchtballonnen</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Miljoen</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Kusjessoldaten</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Laat de wind maar waaien</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Als het binnen regent</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Oma’s aan de top</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Jodelee</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">Alle kleuren</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Kus van de juf</td>
+<td style="text-align: right;">3</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">Hippie shake</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: left;">Jij bent de bom!</td>
+<td style="text-align: right;">3</td>
 </tr>
 </tbody>
 </table>
@@ -89,27 +88,27 @@ Add the formations to the ratings:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">6</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">10</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">1</td>
 <td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">10</td>
 </tr>
 </tbody>
 </table>
@@ -141,20 +140,20 @@ Order formations by ratings:
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">5.555249</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">4</td>
-<td style="text-align: right;">5.543750</td>
-</tr>
-<tr class="odd">
 <td style="text-align: left;">2</td>
-<td style="text-align: right;">5.485876</td>
+<td style="text-align: right;">5.703911</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">5.248485</td>
+<td style="text-align: right;">5.613821</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">5.437956</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">5.274390</td>
 </tr>
 </tbody>
 </table>
@@ -209,32 +208,32 @@ Do the formations have different ratings?
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">12</td>
-<td style="text-align: right;">0.9711847</td>
+<td style="text-align: right;">0.4511496</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">13</td>
-<td style="text-align: right;">0.6301308</td>
+<td style="text-align: right;">0.6318555</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">14</td>
-<td style="text-align: right;">0.9999999</td>
+<td style="text-align: right;">0.8206113</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">23</td>
-<td style="text-align: right;">0.8778946</td>
+<td style="text-align: right;">0.9954695</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">24</td>
-<td style="text-align: right;">0.9998167</td>
+<td style="text-align: right;">0.1556527</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">34</td>
-<td style="text-align: right;">0.7312569</td>
+<td style="text-align: right;">0.2831867</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
