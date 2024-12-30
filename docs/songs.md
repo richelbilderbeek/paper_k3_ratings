@@ -3,7 +3,7 @@
 These are the K3 songs, as obtained with `heyahmama::get_songs()`:
 
 <!-- knitr::kable(heyahmama::get_songs() |> dplyr::select(cd_title, track_number, song_title)) -->
-                                                                          
+
 
 cd_title                   | track_number|song_title
 ---------------------------|-------------|-----------------------------------
