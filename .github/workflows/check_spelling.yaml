@@ -21,6 +21,9 @@ jobs:
       - name: Set up Git repository
         uses: actions/checkout@v4
 
+      - name: Remove generated file
+        run: rm docs/analysis/analysis.md
+
       - uses: igsekor/pyspelling-any@v1.0.4
 
 
