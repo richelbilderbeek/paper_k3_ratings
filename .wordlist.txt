@@ -41,3 +41,4 @@ Rmd
 noticable
 cds
 datasets
+DOI
