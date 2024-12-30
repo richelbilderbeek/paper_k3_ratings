@@ -100,27 +100,40 @@ knitr::kable(ordered_average_rating_per_formation)
 Do the formations have different ratings?
 
 ```{r}
-testthat::expect_equal(n_formations, 4)
-ratings_1 <- ratings_per_formation[ratings_per_formation$formation == 1, ]$rating
-ratings_2 <- ratings_per_formation[ratings_per_formation$formation == 2, ]$rating
-ratings_3 <- ratings_per_formation[ratings_per_formation$formation == 3, ]$rating
-ratings_4 <- ratings_per_formation[ratings_per_formation$formation == 4, ]$rating
-p_12 <- ks.test(ratings_1, ratings_2, alternative = "two.sided")$p.value
-p_13 <- ks.test(ratings_1, ratings_3, alternative = "two.sided")$p.value
-p_14 <- ks.test(ratings_1, ratings_4, alternative = "two.sided")$p.value
-p_23 <- ks.test(ratings_2, ratings_3, alternative = "two.sided")$p.value
-p_24 <- ks.test(ratings_2, ratings_4, alternative = "two.sided")$p.value
-p_34 <- ks.test(ratings_3, ratings_4, alternative = "two.sided")$p.value
-p_values_table <- tibble::tribble(
-  ~comparison, ~p_value,
-  "12", p_12,
-  "13", p_13,
-  "14", p_14,
-  "23", p_23,
-  "24", p_24,
-  "34", p_34
+n_combinations <- factorial(n_formations - 1)
+```
+
+There will be `r n_combinations` comparisons.
+
+```{r}
+alpha <- 0.05 / n_combinations
+```
+
+Due to `r n_combinations` comparisons,
+the alpha value is (`0.05` divided by
+`r n_combinations` equals) `r alpha`.
+
+```{r}
+p_values_table <- tibble::tibble(
+  a = rep(NA, n_combinations), 
+  b = NA, 
+  p_value = NA
 )
-alpha <- 0.05
+
+i <- 1
+for (lhs in seq(1, n_formations - 1)) {
+  ratings_lhs <- ratings_per_formation[ratings_per_formation$formation == lhs, ]$rating
+  for (rhs in seq(lhs + 1, n_formations)) {
+    ratings_rhs <- ratings_per_formation[ratings_per_formation$formation == rhs, ]$rating
+    p_value <- ks.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
+    testthat::expect_true(i >= 1)
+    testthat::expect_true(i <= nrow(p_values_table))
+    p_values_table$a[i] <- lhs
+    p_values_table$b[i] <- rhs
+    p_values_table$p_value[i] <- p_value
+    i <- i + 1
+  }
+}
 p_values_table$is_the_same <- p_values_table$p_value > alpha
 knitr::kable(p_values_table)
 ```
