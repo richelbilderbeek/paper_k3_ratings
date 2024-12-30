@@ -23,18 +23,13 @@ Connecting the ratings to the formations:
 There are 270 songs.
 
     cds <- dplyr::select(heyahmama::get_cds(), cd_title, formation)
-    n_cds <-nrow(cds)
+    n_cds <- nrow(cds)
+    n_formations <- length(unique(cds$formation))
 
 There are 22 CDs.
 
     songs_per_formation <- dplyr::select(merge(songs, cds), song_title, formation)
-
-    # Not yet
-    # testthat::expect_equal(n_songs, nrow(songs_per_formation))
-    if (n_songs != nrow(songs_per_formation)) {
-      warning("Not all songs are found to be on a CD")
-    }
-
+    testthat::expect_equal(n_songs, nrow(songs_per_formation))
     knitr::kable(head(songs_per_formation))
 
 <table>
@@ -75,6 +70,7 @@ There are 22 CDs.
 Add the formations to the ratings:
 
     ratings_per_formation <- dplyr::select(merge(ratings, songs_per_formation), formation, rating)
+    testthat::expect_equal(n_ratings, nrow(ratings_per_formation))
     ratings_per_formation$formation <- as.factor(ratings_per_formation$formation)
     knitr::kable(head(ratings_per_formation))
 
@@ -88,27 +84,27 @@ Add the formations to the ratings:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">9</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">6</td>
+<td style="text-align: right;">7</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">8</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">2</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">10</td>
+<td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
@@ -125,9 +121,15 @@ Plot:
 Order formations by ratings:
 
     average_rating_per_formation <-
-      ratings_per_formation |> dplyr::group_by(formation) |> dplyr::summarise(average_rating = mean(rating))
+      ratings_per_formation |> 
+      dplyr::group_by(formation) |> 
+      dplyr::summarise(average_rating = mean(rating))
+    testthat::expect_equal(n_formations, nrow(average_rating_per_formation))
 
-    ordered_average_rating_per_formation <-  average_rating_per_formation |> dplyr::arrange(dplyr::desc(average_rating))
+    ordered_average_rating_per_formation <- 
+      average_rating_per_formation |> 
+      dplyr::arrange(dplyr::desc(average_rating))
+    testthat::expect_equal(n_formations, nrow(ordered_average_rating_per_formation))
 
     knitr::kable(ordered_average_rating_per_formation)
 
@@ -140,20 +142,20 @@ Order formations by ratings:
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">2</td>
-<td style="text-align: right;">5.703911</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">5.725441</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">5.613821</td>
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">5.169312</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">5.437956</td>
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">4.473684</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: right;">5.274390</td>
+<td style="text-align: right;">4.192568</td>
 </tr>
 </tbody>
 </table>
@@ -162,78 +164,94 @@ Order formations by ratings:
 
 Do the formations have different ratings?
 
-    ratings_1 <- ratings_per_formation[ratings_per_formation$formation == 1, ]$rating
-    ratings_2 <- ratings_per_formation[ratings_per_formation$formation == 2, ]$rating
-    ratings_3 <- ratings_per_formation[ratings_per_formation$formation == 3, ]$rating
-    ratings_4 <- ratings_per_formation[ratings_per_formation$formation == 4, ]$rating
-    p_12 <- ks.test(ratings_1, ratings_2, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_1, ratings_2, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_13 <- ks.test(ratings_1, ratings_3, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_1, ratings_3, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_14 <- ks.test(ratings_1, ratings_4, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_1, ratings_4, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_23 <- ks.test(ratings_2, ratings_3, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_2, ratings_3, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_24 <- ks.test(ratings_2, ratings_4, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_2, ratings_4, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_34 <- ks.test(ratings_3, ratings_4, alternative = "two.sided")$p.value
-    #> Warning in ks.test.default(ratings_3, ratings_4, alternative = "two.sided"):
-    #> p-value will be approximate in the presence of ties
-    p_values_table <- tibble::tribble(
-      ~comparison, ~p_value,
-      "12", p_12,
-      "13", p_13,
-      "14", p_14,
-      "23", p_23,
-      "24", p_24,
-      "34", p_34
+    n_combinations <- factorial(n_formations - 1)
+
+There will be 6 comparisons.
+
+    alpha <- 0.05 / n_combinations
+
+Due to 6 comparisons, the alpha value is (`0.05` divided by 6 equals)
+0.0083333.
+
+    p_values_table <- tibble::tibble(
+      a = rep(NA, n_combinations), 
+      b = NA, 
+      p_value = NA
     )
-    alpha <- 0.05
+
+    i <- 1
+    for (lhs in seq(1, n_formations - 1)) {
+      ratings_lhs <- ratings_per_formation[ratings_per_formation$formation == lhs, ]$rating
+      for (rhs in seq(lhs + 1, n_formations)) {
+        ratings_rhs <- ratings_per_formation[ratings_per_formation$formation == rhs, ]$rating
+        p_value <- ks.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
+        testthat::expect_true(i >= 1)
+        testthat::expect_true(i <= nrow(p_values_table))
+        p_values_table$a[i] <- lhs
+        p_values_table$b[i] <- rhs
+        p_values_table$p_value[i] <- p_value
+        i <- i + 1
+      }
+    }
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
+    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
+    #> "two.sided"): p-value will be approximate in the presence of ties
     p_values_table$is_the_same <- p_values_table$p_value > alpha
     knitr::kable(p_values_table)
 
 <table>
 <thead>
 <tr class="header">
-<th style="text-align: left;">comparison</th>
+<th style="text-align: right;">a</th>
+<th style="text-align: right;">b</th>
 <th style="text-align: right;">p_value</th>
 <th style="text-align: left;">is_the_same</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: left;">12</td>
-<td style="text-align: right;">0.4511496</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.0033984</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">13</td>
-<td style="text-align: right;">0.6318555</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0001015</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">14</td>
-<td style="text-align: right;">0.8206113</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0000012</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">23</td>
-<td style="text-align: right;">0.9954695</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0043610</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="odd">
-<td style="text-align: left;">24</td>
-<td style="text-align: right;">0.1556527</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0885609</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;">34</td>
-<td style="text-align: right;">0.2831867</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.1997498</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
