@@ -6,12 +6,22 @@ target_filename <- paste0(getwd(), "/docs/analysis/ratings.csv")
 testthat::expect_true(file.exists(target_filename))
 
 create_simulated_ratings <- function(n_ratings = 1000) {
-  song_titles <- heyahmama::get_songs()$song_title
-  tibble::tibble(
-    song_title = sample(song_titles, size = n_ratings, replace = TRUE),
-    rating = sample(seq(1, 10), size = n_ratings, replace = TRUE),
-    rater_name = sample(c("Mister A", "Miss B", "Person C"), size = n_ratings, replace = TRUE)
+  
+  songs <- dplyr::select(heyahmama::get_songs(), cd_title, song_title)
+  cds <- dplyr::select(heyahmama::get_cds(), cd_title, formation)
+  songs_per_formation <- merge(songs, cds)
+  
+  rated_songs <- tibble::tibble(
+    song_title = sample(songs_per_formation$song_title, size = n_ratings, replace = TRUE),
   )
+  ratings_with_formations <- merge(rated_songs, songs_per_formation)
+  ratings_with_formations$rating <- sample(seq(1, 10), size = n_ratings, replace = TRUE)
+  ratings_with_formations$rating <- ratings_with_formations$rating - ((ratings_with_formations$formation - 1) / 2)
+  ratings_with_formations[ratings_with_formations$rating < 1, ]$rating <- 1
+  
+  ratings_with_formations$rater_name = sample(c("Mister A", "Miss B", "Person C"), size = n_ratings, replace = TRUE)
+  dplyr::select(ratings_with_formations, song_title, rating, rater_name)
+  
 }
 
 t <- create_simulated_ratings()
