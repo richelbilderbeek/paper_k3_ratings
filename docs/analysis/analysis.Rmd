@@ -125,7 +125,7 @@ for (lhs in seq(1, n_formations - 1)) {
   ratings_lhs <- ratings_per_formation[ratings_per_formation$formation == lhs, ]$rating
   for (rhs in seq(lhs + 1, n_formations)) {
     ratings_rhs <- ratings_per_formation[ratings_per_formation$formation == rhs, ]$rating
-    p_value <- ks.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
+    p_value <- wilcox.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
     testthat::expect_true(i >= 1)
     testthat::expect_true(i <= nrow(p_values_table))
     p_values_table$a[i] <- lhs
