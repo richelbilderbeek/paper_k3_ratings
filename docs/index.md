@@ -12,4 +12,4 @@ Statement being tested in this research
 
 - [Paper](paper.md)
 - Appendix
-    - [analysis.md](analysis.md)
+    - [analysis](analysis/README.md)
