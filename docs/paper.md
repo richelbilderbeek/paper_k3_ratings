@@ -41,7 +41,17 @@ did better or worse.
 
 ## Methods
 
-### Data set
+### Data selection
+
+```mermaid
+flowchart TD
+  all[All songs]
+  studio_albums[270 songs]
+
+  all --> |Songs on studio albums|studio_albums
+```
+
+https://en.wikipedia.org/wiki/K3_discography
 
 For the information on K3, the R package `heyahmama` is used.
 This package contains a list of all 22 studio CDs,
