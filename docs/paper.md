@@ -109,10 +109,11 @@ We do not assume that the
 ratings follows a normal distribution,
 as we think it is likelier that fans
 rate a song with the more extreme ratings.
-Due to this,
-we use a Kolmorov-Smirnoff test to test if
-the distributions are the same.
-As the Kolmorov-Smirnoff test makes no assumptions on the underlying
+Additionally, we know that ratings are not unique.
+Due to those shatement, the Mann-Whitney U test is the correct
+statistical test to use in this context,
+test if the distributions of ratings are the same.
+As the Mann-Whitney U test makes no assumptions on the underlying
 distributions, it will be rather conservative in determining if
 two distributions are different.
 This, on the other hand, does mean that if a difference is found,
