@@ -83,9 +83,13 @@ which is use for hypothesis 1.
 Behind all these songs have been 5 different groups of
 composers, with big overlap of the composers in each group.
 Dataset B is the subset of dataset A where the songs are written
-by the most prolific group of composers (which are
-Alain Vande Putte, Miguel Wiels and Peter Gillis),
+by the most prolific group of composers,
 which is used for hypothesis 2.
+
+???- question "Who is in the most prolofic group of K3 composers?"
+
+    These are Alain Vande Putte, Miguel Wiels and Peter Gillis,
+    as can be seen in the `heyahmama` 'Composers' vignette.
 
 #### Ratings
 
