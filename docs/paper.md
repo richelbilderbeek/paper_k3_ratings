@@ -91,6 +91,9 @@ which is used for hypothesis 2.
     These are Alain Vande Putte, Miguel Wiels and Peter Gillis,
     as can be seen in the `heyahmama` 'Composers' vignette.
 
+This group of composers, however, has only written songs for the first three
+formations.
+
 #### Ratings
 
 We obtain ratings (which are values from
@@ -120,30 +123,55 @@ This, on the other hand, does mean that if a difference is found,
 it is undeniable that different formations have an effect on perceived
 song quality.
 
-We compare the distributions between all combinations of ratings,
-as shown in table 4.
-
-Formation 1|Formation 2|Average rating 1|Average rating 2|p value|Different ratings?
------------|-----------|----------------|----------------|-------|------------------
-1          |2          |.               |.               |.      |.
-1          |3          |.               |.               |.      |.
-1          |4          |.               |.               |.      |.
-2          |3          |.               |.               |.      |.
-2          |4          |.               |.               |.      |.
-3          |4          |.               |.               |.      |.
-
-> Table 4: overview of statistical tests
-
 A base value of alpha of 0.05 is used,
 as there has not been done any previous research on this.
 A Bonferroni correction is used to take multiple tests into consideration,
-resulting in an alpha value of (0.05 / 6 =) 0.0083.
+which results in an alpha value of (0.05 / 6 =) 0.0083 for dataset A (which
+has 4 K3 formations)
+and an alpha value of (0.05 / 3 =) 0.016666667 for dataset B (which
+has 3 K3 formations).
+
 If the p value if below that alpha value,
 the formations have a significantly different ratings distributions,
 meaning that the different group members have had an effect
 on the perceived quality of the songs.
 Else, we will conclude that the two formations
 have produced songs of equal perceived quality.
+
+We compare the distributions between all combinations of ratings,
+as shown in tables 4a and 4b.
+
+
+Formation A|Formation B|p-value|Are distributions the same?
+---|---|---------|-----------
+1|2|0.0284633|TRUE       
+1|3|0.0000000|FALSE      
+1|4|0.0000000|FALSE      
+2|3|0.0068141|FALSE      
+2|4|0.0012854|FALSE      
+3|4|0.3212295|TRUE       
+
+> Table 4a: overview of statistical tests
+
+???- question "How did you generate these values?"
+
+    By doing the actual analysis on simulated data.
+
+    The simulated data is created by
+    [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
+
+We also show the distributions of the ratings:
+
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/unnamed-chunk-8-1.png)
+
+> Fig 1a: distributions of ratings
+
+???- question "How did you generate these values?"
+
+    By doing the actual analysis on simulated data.
+
+    The simulated data is created by
+    [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
 
 ## Results
 
@@ -160,7 +188,9 @@ group is more enjoyable.
 
 ## Discussion
 
-One confounding factor is that the composers age.
+Confounding factors are:
+- composers age
+- since 
 
 The dataset used has multiple factors that weaken
 it. First, users will not rate all songs.
@@ -170,3 +200,4 @@ on their ratings. As the dataset is quite big,
 we expect these factors to average out any biases.
 However, it will make it harder to observe any significant
 effects.
+
