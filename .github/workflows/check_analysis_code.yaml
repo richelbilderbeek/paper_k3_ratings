@@ -57,3 +57,5 @@ jobs:
       - name: Run
         run: ./scripts/create_rendered_versions_of_rmd_analysis.R
 
+      - name: Show the results
+        run: cat docs/analysis/analysis.md
