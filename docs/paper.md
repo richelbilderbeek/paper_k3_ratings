@@ -86,7 +86,7 @@ Dataset B is the subset of dataset A where the songs are written
 by the most prolific group of composers,
 which is used for hypothesis 2.
 
-???- question "Who is in the most prolofic group of K3 composers?"
+???- question "Who is in the most prolific group of K3 composers?"
 
     These are Alain Vande Putte, Miguel Wiels and Peter Gillis,
     as can be seen in the `heyahmama` 'Composers' vignette.
@@ -110,9 +110,9 @@ ratings follows a normal distribution,
 as we think it is likelier that fans
 rate a song with the more extreme ratings.
 Additionally, we know that ratings are not unique.
-Due to those shatement, the Mann-Whitney U test is the correct
-statistical test to use in this context,
-test if the distributions of ratings are the same.
+Due to those statements, the Mann-Whitney U test is the correct
+statistical test to use,
+which tests if the distributions of ratings are the same.
 As the Mann-Whitney U test makes no assumptions on the underlying
 distributions, it will be rather conservative in determining if
 two distributions are different.

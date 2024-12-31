@@ -42,3 +42,5 @@ noticable
 cds
 datasets
 DOI
+jpg
+wikipedia
