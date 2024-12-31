@@ -12,7 +12,6 @@ called K3, using song ratings as given by fans.
 It was found that band members do/don't
 influence the perceived quality of the song.
 
-
 ## Introduction
 
 What is the effect that members of a
@@ -28,6 +27,20 @@ that currently is in its fourth formation
 and has produced 22 CDs, with mostly the
 exact same group of writers.
 
+???- question "What are the different K3 formations?"
+
+    These are the K3 formations,
+    as obtained by `heyahmama::get_formations_wide()`:
+
+    Formation||Members
+    ---------|-----------------------
+    1        |Karen, Kristel,Kathleen
+    2        |Josje, Karen, Kathleen
+    3        |Hanne, Klaasje, Marthe
+    4        |Hanne, Julia, Marthe
+
+    > Table 1: K3 formations
+
 This research tries to conclude if a certain formation
 did better or worse.
 
@@ -41,29 +54,38 @@ did better or worse.
 
 ## Methods
 
-### Data selection
+### Song selection
 
 ```mermaid
 flowchart TD
   all[All songs]
-  studio_albums[270 songs]
+  studio_albums[Dataset A: 270 songs]
+  same_composers[Dataset B: 185 songs]
 
   all --> |Songs on studio albums|studio_albums
+  studio_albums --> |Most prolific group of composers|same_composers
 ```
 
-https://en.wikipedia.org/wiki/K3_discography
+To select the songs used in this research,
+the R package `heyahmama` is used,
+which is a package containing information about K3,
+including functions to easily work with the data.
 
-For the information on K3, the R package `heyahmama` is used.
-This package contains a list of all 22 studio CDs,
-the formation for that CD and the song titles on each CD.
-The table with CD title and formation can be found at [cds.md](cds.md).
-The table with songs can be found at [songs.md](songs.md).
+Our first filter is to use only songs that are found on studio albums.
+K3 produces multiple types of CDs: studio albums,
+soundtrack albums, compilation albums, live albums and singles.
+The songs excluded are those on soundtrack albums,
+as these are not included in the `hayahmama` package
+[yet](https://github.com/richelbilderbeek/heyahmama/issues/10).
+Dataset A is the dataset that uses the songs present on these CDs,
+which is use for hypothesis 1.
 
-### Song selection
-
-For hypothesis 1, all songs that are unique to a formation
-are used. For hypothesis 2, only songs are used that
-are written by the exact same group of text writers.
+Behind all these songs have been 5 different groups of
+composers, with big overlap of the composers in each group.
+Dataset B is the subset of dataset A where the songs are written
+by the most prolific group of composers (which are
+Alain Vande Putte, Miguel Wiels and Peter Gillis),
+which is used for hypothesis 2.
 
 #### Ratings
 
@@ -73,8 +95,6 @@ from two websites in which fans
 have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
-
-The table with ratings can be found at [ratings.md](ratings.md).
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
