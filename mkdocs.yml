@@ -20,6 +20,8 @@ theme:
   font:
     text: Lato
     code: JetBrains Mono
+  palette:
+    primary: pink
 
   features:
     - toc.integrate
