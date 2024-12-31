@@ -184,7 +184,7 @@ Due to 6 comparisons, the alpha value is (`0.05` divided by 6 equals)
       ratings_lhs <- ratings_per_formation[ratings_per_formation$formation == lhs, ]$rating
       for (rhs in seq(lhs + 1, n_formations)) {
         ratings_rhs <- ratings_per_formation[ratings_per_formation$formation == rhs, ]$rating
-        p_value <- ks.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
+        p_value <- wilcox.test(ratings_lhs, ratings_rhs, alternative = "two.sided")$p.value
         testthat::expect_true(i >= 1)
         testthat::expect_true(i <= nrow(p_values_table))
         p_values_table$a[i] <- lhs
@@ -193,18 +193,6 @@ Due to 6 comparisons, the alpha value is (`0.05` divided by 6 equals)
         i <- i + 1
       }
     }
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
-    #> Warning in ks.test.default(ratings_lhs, ratings_rhs, alternative =
-    #> "two.sided"): p-value will be approximate in the presence of ties
     p_values_table$is_the_same <- p_values_table$p_value > alpha
     knitr::kable(p_values_table)
 
@@ -221,37 +209,37 @@ Due to 6 comparisons, the alpha value is (`0.05` divided by 6 equals)
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">0.0033984</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0001015</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.0000012</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0043610</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.0885609</td>
+<td style="text-align: right;">0.0284633</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0068141</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0012854</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0.1997498</td>
+<td style="text-align: right;">0.3212295</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
