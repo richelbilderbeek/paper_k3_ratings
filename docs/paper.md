@@ -52,7 +52,7 @@ same group of writers, produced by the same producers.
     These are the K3 formations,
     as obtained by `heyahmama::get_formations_wide()`:
 
-    Formation||Members
+    Formation|Members
     ---------|-----------------------
     1        |Karen, Kristel,Kathleen
     2        |Josje, Karen, Kathleen
