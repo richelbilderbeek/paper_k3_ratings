@@ -61,12 +61,12 @@ same group of writers, produced by the same producers.
 
     > Table 1: K3 formations
 
-One confounding factor that may cause the intrinisc
+One confounding factor that may cause the intrinsic
 K3 song quality to change is, simply, time:
 over time, song writers change, fans change and
 the way fans rate songs changes.
 This research will assume these factors of
-minor importants.
+minor importance.
 To verify this assumptions,
 this research will investigate if the lyrics have remained constant in time.
 
