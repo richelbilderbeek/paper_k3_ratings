@@ -1,31 +1,50 @@
-# Does perceived song quality depend on band members for same composers?
+# Are members exchangable in commercial music bands? A preregistration
 
 ## Abstract
 
-Some bands have had multiple formations,
-while using the same composers.
-What is the effect of the singers
-on the perceived song quality?
-This paper answers this question
-for the famous Flemish music group
-called K3, using song ratings as given by fans.
-It was found that band members do/don't
-influence the perceived quality of the song.
+Some commercial music bands have had multiple formations,
+where members are swapped by others.
+Given that the goal of such a band is to
+remain being a commercial success,
+on can imagine that swapping members
+has no effect.
+In such commercial music bands,
+are members exchangable?
+In this preregistered research,
+we answer this question 
+based on ratings of songs of a
+famous Flemish band called K3,
+which seems the perfect band to answer
+this question with.
+We found that K3 `is/is_not` a
+perfect dataset and that there
+`is an/is no` effect when
+band members are swapped,
+based on the perceived quality of the songs.
 
 ## Introduction
 
-What is the effect that members of a
-music band have on the perceived quality
-on their songs, when these songs
-are written by others?
-Do the song writers adapt to the band members
-in a noticable way?
+Imagine a highly commercial boy/girl band,
+with all its songs being written by the same
+composers and being produced by the same producers.
+In such a setting, does the personality of the singers
+matter at all? Or, in other words, are all members
+exchangable with equally qualified artists?
 
-This has been a burning for the Flemish music group
-called K3, which is a famous Flemish/Dutch music group
-that currently is in its fourth formation
-and has produced 22 CDs, with mostly the
-exact same group of writers.
+The ideal dataset would be a band that
+is highly commercial, has had produced many songs,
+has had multiple artist formations, while having
+the same group of composers and producers.
+If, in such a band, the songs of one formation get a significantly
+higher or lower ratings, than we can draw the
+-maybe unexpected- conclusion that, yes,
+the personality of the artists matter.
+
+A band that is close to the ideal dataset seems
+to be the Flemish bubblegum pop girl band called K3,
+which is highly commercial, is currently in its fourth formation,
+has produced more than twenty CDs, written by mostly the
+same group of writers, produced by the same producers.
 
 ???- question "What are the different K3 formations?"
 
@@ -41,8 +60,11 @@ exact same group of writers.
 
     > Table 1: K3 formations
 
-This research tries to conclude if a certain formation
-did better or worse.
+This research investigates if a certain K3 formation
+resulted in significantly worse or better ratings.
+If -maybe unexpectedly- such a formation is found, this would give the
+implication that even in a highly commercial music band, the
+personality of the band members matters.
 
 ## Hypothesis
 
@@ -50,7 +72,8 @@ did better or worse.
   have the same distribution in their ratings
 - H2: the songs unique to each K3 formation
   have the same distribution in their ratings,
-  if the songs compared have the same writers
+  for those songs that have the exact same group of text writers
+
 
 ## Methods
 
