@@ -84,27 +84,27 @@ Add the formations to the ratings:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">3</td>
 <td style="text-align: right;">9</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">7</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">3</td>
-<td style="text-align: right;">1</td>
 </tr>
 </tbody>
 </table>
@@ -174,19 +174,19 @@ Order formations by ratings:
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">5.725441</td>
+<td style="text-align: right;">5.730159</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: right;">5.169312</td>
+<td style="text-align: right;">4.876316</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">4.473684</td>
+<td style="text-align: right;">4.441606</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">4</td>
-<td style="text-align: right;">4.192568</td>
+<td style="text-align: right;">4.338608</td>
 </tr>
 </tbody>
 </table>
@@ -245,42 +245,42 @@ Applying it here:
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">0.0284633</td>
+<td style="text-align: right;">0.0008208</td>
+<td style="text-align: right;">0.0083333</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0000000</td>
+<td style="text-align: right;">0.0083333</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0083333</td>
+<td style="text-align: left;">FALSE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0811276</td>
+<td style="text-align: right;">0.0083333</td>
+<td style="text-align: left;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0922982</td>
 <td style="text-align: right;">0.0083333</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">0.0083333</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.0000000</td>
-<td style="text-align: right;">0.0083333</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0068141</td>
-<td style="text-align: right;">0.0083333</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">0.0012854</td>
-<td style="text-align: right;">0.0083333</td>
-<td style="text-align: left;">FALSE</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">0.3212295</td>
+<td style="text-align: right;">0.8913167</td>
 <td style="text-align: right;">0.0083333</td>
 <td style="text-align: left;">TRUE</td>
 </tr>
@@ -346,15 +346,15 @@ To these ratings
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">1</td>
-<td style="text-align: right;">5.725441</td>
+<td style="text-align: right;">5.730159</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">2</td>
-<td style="text-align: right;">5.169312</td>
+<td style="text-align: right;">4.876316</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">3</td>
-<td style="text-align: right;">4.473684</td>
+<td style="text-align: right;">4.441606</td>
 </tr>
 </tbody>
 </table>
@@ -376,9 +376,9 @@ To these ratings
 <tr class="odd">
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">0.0284633</td>
+<td style="text-align: right;">0.0008208</td>
 <td style="text-align: right;">0.0166667</td>
-<td style="text-align: left;">TRUE</td>
+<td style="text-align: left;">FALSE</td>
 </tr>
 <tr class="even">
 <td style="text-align: right;">1</td>
@@ -390,9 +390,9 @@ To these ratings
 <tr class="odd">
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">0.0068141</td>
+<td style="text-align: right;">0.0811276</td>
 <td style="text-align: right;">0.0166667</td>
-<td style="text-align: left;">FALSE</td>
+<td style="text-align: left;">TRUE</td>
 </tr>
 </tbody>
 </table>
