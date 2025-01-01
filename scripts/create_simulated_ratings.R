@@ -20,13 +20,14 @@ create_simulated_ratings <- function(n_ratings = 1000) {
   ratings_with_formations[ratings_with_formations$rating < 1, ]$rating <- 1
   
   ratings_with_formations$rater_name = sample(c("Mister A", "Miss B", "Person C"), size = n_ratings, replace = TRUE)
-  dplyr::select(ratings_with_formations, song_title, rating, rater_name)
+  ratings_with_formations$url <- "simulated"
+  dplyr::select(ratings_with_formations, song_title, rating, rater_name, url)
   
 }
 
 t <- create_simulated_ratings()
 
-expected_column_names <- c("song_title", "rating", "rater_name")
+expected_column_names <- c("song_title", "rating", "rater_name", "url")
 testthat::expect_equal(names(t), expected_column_names)
 
 readr::write_csv(t, target_filename)
