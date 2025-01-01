@@ -322,7 +322,7 @@ To these ratings
     #> Warning in ggsignif::geom_signif(data = t, ggplot2::aes(xmin = a, xmax = b, :
     #> Ignoring unknown aesthetics: xmin, xmax, annotations, and y_position
 
-![](analysis_files/figure-markdown_strict/unnamed-chunk-15-1.png)
+![](analysis_files/figure-markdown_strict/plot_ratings_with_indicators_4-1.png)
 
 ## 3 formations
 
@@ -330,7 +330,7 @@ To these ratings
     p <- plot_ratings(t)
     p
 
-![](analysis_files/figure-markdown_strict/unnamed-chunk-16-1.png)
+![](analysis_files/figure-markdown_strict/unnamed-chunk-15-1.png)
 
     knitr::kable(
       get_ordered_average_rating_per_formation(t)
@@ -401,4 +401,4 @@ To these ratings
     #> Warning in ggsignif::geom_signif(data = t, ggplot2::aes(xmin = a, xmax = b, :
     #> Ignoring unknown aesthetics: xmin, xmax, annotations, and y_position
 
-![](analysis_files/figure-markdown_strict/unnamed-chunk-19-1.png)
+![](analysis_files/figure-markdown_strict/plot_ratings_with_indicators_3-1.png)

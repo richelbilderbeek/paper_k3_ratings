@@ -172,21 +172,21 @@ as shown in tables 4a and 4b.
     [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
 
 Formation A|Formation B|p-value|Are distributions the same?
----|---|---------|-----------
-1|2|0.0284633|TRUE       
-1|3|0.0000000|FALSE      
-1|4|0.0000000|FALSE      
-2|3|0.0068141|FALSE      
-2|4|0.0012854|FALSE      
-3|4|0.3212295|TRUE       
+---|---|---------|---------|---------
+    1 | 2 | 0.0284633 | 0.0083333 | TRUE       
+1 | 3 | 0.0000000 | 0.0083333 | FALSE      
+1 | 4 | 0.0000000 | 0.0083333 | FALSE      
+2 | 3 | 0.0068141 | 0.0083333 | FALSE      
+2 | 4 | 0.0012854 | 0.0083333 | FALSE      
+3 | 4 | 0.3212295 | 0.0083333 | TRUE       
 
 > Table 4a: overview of statistical tests between all formations
 
-Formation A|Formation B|p-value|Are distributions the same?
----|---|---------|-----------
-1|2|0.0284633|TRUE
-1|3|0.0000000|FALSE
-2|3|0.0068141|FALSE
+Formation A|Formation B|p-value|Alpha value|Are distributions the same?
+---|---|---------|---------|---------
+1 | 2 | 0.0284633 | 0.0166667 | TRUE       
+1 | 3 | 0.0000000 | 0.0166667 | FALSE      
+2 | 3 | 0.0068141 | 0.0166667 | FALSE      
 
 > Table 4b: overview of statistical tests between all formations with
 > the most prolific group of text writers
@@ -200,11 +200,11 @@ We also show the distributions of the ratings:
     The simulated data is created by
     [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
 
-![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/unnamed-chunk-8-1.png)
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_4-1.png)
 
 > Fig 1a: distributions of ratings
 
-![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/unnamed-chunk-8-1.png)
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_3-1.png)
 
 > Fig 1b: distributions of ratings,
 > for all formations with the most prolific group of text writers
