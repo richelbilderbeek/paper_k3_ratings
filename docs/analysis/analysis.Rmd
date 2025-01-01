@@ -207,7 +207,7 @@ plot_ratings_with_indicators <- function(ratings_per_formation) {
 
 To these ratings
 
-```{r}
+```{r plot_ratings_with_indicators_4}
 plot_ratings_with_indicators(ratings_per_formation)
 ```
 
@@ -230,6 +230,6 @@ t <- ratings_per_formation[ratings_per_formation$formation != 4, ]
 knitr::kable(get_stats_table(ratings_per_formation = t))
 ```
 
-```{r}
+```{r plot_ratings_with_indicators_3}
 plot_ratings_with_indicators(t)
 ```
