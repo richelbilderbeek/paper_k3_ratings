@@ -173,7 +173,7 @@ as shown in tables 4a and 4b.
 
 Formation A|Formation B|p-value|Are distributions the same?
 ---|---|---------|---------|---------
-    1 | 2 | 0.0284633 | 0.0083333 | TRUE
+1 | 2 | 0.0284633 | 0.0083333 | TRUE
 1 | 3 | 0.0000000 | 0.0083333 | FALSE
 1 | 4 | 0.0000000 | 0.0083333 | FALSE
 2 | 3 | 0.0068141 | 0.0083333 | FALSE
