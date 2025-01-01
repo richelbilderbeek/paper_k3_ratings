@@ -61,6 +61,15 @@ same group of writers, produced by the same producers.
 
     > Table 1: K3 formations
 
+One confounding factor that may cause the intrinisc
+K3 song quality to change is, simply, time:
+over time, song writers change, fans change and
+the way fans rate songs changes.
+This research will assume these factors of
+minor importants.
+To verify this assumptions,
+this research will investigate if the lyrics have remained constant in time.
+
 This research investigates if a certain K3 formation
 resulted in significantly worse or better ratings.
 If -maybe unexpectedly- such a formation is found, this would give the
@@ -74,6 +83,7 @@ personality of the band members matters.
 - H2: the songs unique to each K3 formation
   have the same distribution in their ratings,
   for those songs that have the exact same group of text writers
+- H3: lyrics have remained constant in time
 
 ## Methods
 
@@ -82,8 +92,8 @@ personality of the band members matters.
 ```mermaid
 flowchart TD
   all[All songs]
-  studio_albums[Dataset A: 270 songs]
-  same_composers[Dataset B: 185 songs]
+  studio_albums[Songs set A: 270 songs]
+  same_composers[Songs set B: 185 songs]
 
   all --> |Songs on studio albums|studio_albums
   studio_albums --> |Most prolific group of composers|same_composers
@@ -100,12 +110,12 @@ soundtrack albums, compilation albums, live albums and singles.
 The songs excluded are those on soundtrack albums,
 as these are not included in the `hayahmama` package
 [yet](https://github.com/richelbilderbeek/heyahmama/issues/10).
-Dataset A is the dataset that uses the songs present on these CDs,
+Songs set A comprises all songs present on all K3 CDs,
 which is use for hypothesis 1.
 
 Behind all these songs have been 5 different groups of
 composers, with big overlap of the composers in each group.
-Dataset B is the subset of dataset A where the songs are written
+Songs set B is the subset of songs set A where the songs are written
 by the most prolific group of composers,
 which is used for hypothesis 2.
 
@@ -114,8 +124,10 @@ which is used for hypothesis 2.
     These are Alain Vande Putte, Miguel Wiels and Peter Gillis,
     as can be seen in the `heyahmama` 'Composers' vignette.
 
-This group of composers, however, has only written songs for the first three
-formations.
+The group of most prolific composers, however,
+has only written songs for the first three formations.
+For those first three formations, however, the amount of songs
+is still assumed to be big enough.
 
 #### Ratings
 
@@ -125,6 +137,7 @@ from two websites in which fans
 have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
+Ratings below one are set to one, where ratings above ten are set to ten.
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
@@ -224,12 +237,7 @@ group is more enjoyable.
 
 ## Discussion
 
-Confounding factors are:
-
-- composers age
-- since
-
-The dataset used has multiple factors that weaken
+The dataset of ratings used has multiple factors that weaken
 it. First, users will not rate all songs.
 Second, users will rate different songs.
 Thirdly, users will have different distributions
