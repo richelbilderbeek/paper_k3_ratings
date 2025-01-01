@@ -87,7 +87,7 @@ personality of the band members matters.
 
 ## Methods
 
-### Song selection
+### Selection of songs
 
 ```mermaid
 flowchart TD
@@ -129,7 +129,7 @@ has only written songs for the first three formations.
 For those first three formations, however, the amount of songs
 is still assumed to be big enough.
 
-#### Ratings
+### Obtaing ratings by fan
 
 We obtain ratings (which are values from
 1 to 10, where 1 is worst and 10 is best)
@@ -142,7 +142,7 @@ Ratings below one are set to one, where ratings above ten are set to ten.
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
 
-### Statistical test
+### Statistical test to compare formations
 
 We do not assume that the
 ratings follows a normal distribution,
@@ -221,6 +221,16 @@ We also show the distributions of the ratings:
 
 > Fig 1b: distributions of ratings,
 > for all formations with the most prolific group of text writers
+
+### Songs remain the same
+
+To determine if all songs have remained the same, even though the
+composition of lyrics writern groups have sometimes changed,
+topic modelling will used.
+
+```text
+TODO
+```
 
 ## Results
 
