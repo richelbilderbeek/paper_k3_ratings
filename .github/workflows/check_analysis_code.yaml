@@ -1,5 +1,5 @@
 # Check that the code works
-name: Check dialogue code
+name: Check analysis code
 
 # Check this on the 16th day of the month.
 # 16th as the first letter of this repo is the 16th letter in the alphabet.
@@ -20,7 +20,7 @@ on:
 
 
 jobs:
-  check-dialogue-code:
+  check-analysis-code:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
