@@ -46,6 +46,7 @@ which is highly commercial, is currently in its fourth formation,
 has produced more than twenty CDs, written by mostly the
 same group of writers, produced by the same producers.
 
+
 ???- question "What are the different K3 formations?"
 
     These are the K3 formations,
@@ -223,4 +224,23 @@ on their ratings. As the dataset is quite big,
 we expect these factors to average out any biases.
 However, it will make it harder to observe any significant
 effects.
+
+This research used K3 as a dataset.
+The choice for this dataset is based on the
+the first author being familiar with their work.
+There are, however, other bands that could also
+be considered, such as The Nolans, with 9 formations
+and 23 studio albums could also be just as suitable.
+Repeating this same experiment for such a band would
+give more general insights in the effect of band
+member personality on fan's song ratings.
+
+Bands such as AKB48 and Morning Musume,
+highly commercial bands that have had more formations
+than CD have been considered unsuitable for this research,
+as we estimate it is too likely that the personality
+of the band members have an effect on song ratings by fans.
+Performing this same experiment on those band and finding
+such an unexpected difference between formations would
+be quite an unexpected finding according to us.
 
