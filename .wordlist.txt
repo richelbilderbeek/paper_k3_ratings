@@ -44,3 +44,7 @@ datasets
 DOI
 jpg
 wikipedia
+AKB
+Musume
+Nolans
+exchangable
