@@ -11,7 +11,7 @@ has no effect.
 In such commercial music bands,
 are members exchangable?
 In this preregistered research,
-we answer this question 
+we answer this question
 based on ratings of songs of a
 famous Flemish band called K3,
 which seems the perfect band to answer
@@ -173,20 +173,20 @@ as shown in tables 4a and 4b.
 
 Formation A|Formation B|p-value|Are distributions the same?
 ---|---|---------|---------|---------
-    1 | 2 | 0.0284633 | 0.0083333 | TRUE       
-1 | 3 | 0.0000000 | 0.0083333 | FALSE      
-1 | 4 | 0.0000000 | 0.0083333 | FALSE      
-2 | 3 | 0.0068141 | 0.0083333 | FALSE      
-2 | 4 | 0.0012854 | 0.0083333 | FALSE      
-3 | 4 | 0.3212295 | 0.0083333 | TRUE       
+    1 | 2 | 0.0284633 | 0.0083333 | TRUE
+1 | 3 | 0.0000000 | 0.0083333 | FALSE
+1 | 4 | 0.0000000 | 0.0083333 | FALSE
+2 | 3 | 0.0068141 | 0.0083333 | FALSE
+2 | 4 | 0.0012854 | 0.0083333 | FALSE
+3 | 4 | 0.3212295 | 0.0083333 | TRUE
 
 > Table 4a: overview of statistical tests between all formations
 
 Formation A|Formation B|p-value|Alpha value|Are distributions the same?
 ---|---|---------|---------|---------
-1 | 2 | 0.0284633 | 0.0166667 | TRUE       
-1 | 3 | 0.0000000 | 0.0166667 | FALSE      
-2 | 3 | 0.0068141 | 0.0166667 | FALSE      
+1 | 2 | 0.0284633 | 0.0166667 | TRUE
+1 | 3 | 0.0000000 | 0.0166667 | FALSE
+2 | 3 | 0.0068141 | 0.0166667 | FALSE
 
 > Table 4b: overview of statistical tests between all formations with
 > the most prolific group of text writers
@@ -225,8 +225,9 @@ group is more enjoyable.
 ## Discussion
 
 Confounding factors are:
+
 - composers age
-- since 
+- since
 
 The dataset used has multiple factors that weaken
 it. First, users will not rate all songs.
