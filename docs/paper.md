@@ -184,7 +184,7 @@ as shown in tables 4a and 4b.
     The simulated data is created by
     [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
 
-Formation A|Formation B|p-value|Are distributions the same?
+Formation A|Formation B|p-value|Alpha value|Are distributions the same?
 ---|---|---------|---------|---------
 1 | 2 | 0.0284633 | 0.0083333 | TRUE
 1 | 3 | 0.0000000 | 0.0083333 | FALSE
