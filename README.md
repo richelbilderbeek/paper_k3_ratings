@@ -1,4 +1,4 @@
-# k3_article
+# `paper_k3_ratings`
 
 [![Check dialogue code](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_analysis_code.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_analysis_code.yaml)
 [![Check links](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_links.yaml/badge.svg?branch=main)](https://github.com/richelbilderbeek/paper_k3_ratings/actions/workflows/check_links.yaml)

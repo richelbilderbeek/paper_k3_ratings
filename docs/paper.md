@@ -75,7 +75,6 @@ personality of the band members matters.
   have the same distribution in their ratings,
   for those songs that have the exact same group of text writers
 
-
 ## Methods
 
 ### Song selection
@@ -152,7 +151,7 @@ as there has not been done any previous research on this.
 A Bonferroni correction is used to take multiple tests into consideration,
 which results in an alpha value of (0.05 / 6 =) 0.0083 for dataset A (which
 has 4 K3 formations)
-and an alpha value of (0.05 / 3 =) 0.016666667 for dataset B (which
+and an alpha value of (0.05 / 3 =) 0.017 for dataset B (which
 has 3 K3 formations).
 
 If the p value if below that alpha value,
@@ -165,6 +164,12 @@ have produced songs of equal perceived quality.
 We compare the distributions between all combinations of ratings,
 as shown in tables 4a and 4b.
 
+???- question "How did you generate these tables?"
+
+    By doing the actual analysis on simulated data.
+
+    The simulated data is created by
+    [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
 
 Formation A|Formation B|p-value|Are distributions the same?
 ---|---|---------|-----------
@@ -175,27 +180,34 @@ Formation A|Formation B|p-value|Are distributions the same?
 2|4|0.0012854|FALSE      
 3|4|0.3212295|TRUE       
 
-> Table 4a: overview of statistical tests
+> Table 4a: overview of statistical tests between all formations
 
-???- question "How did you generate these values?"
+Formation A|Formation B|p-value|Are distributions the same?
+---|---|---------|-----------
+1|2|0.0284633|TRUE
+1|3|0.0000000|FALSE
+2|3|0.0068141|FALSE
+
+> Table 4b: overview of statistical tests between all formations with
+> the most prolific group of text writers
+
+We also show the distributions of the ratings:
+
+???- question "How did you generate these plots?"
 
     By doing the actual analysis on simulated data.
 
     The simulated data is created by
     [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
-
-We also show the distributions of the ratings:
 
 ![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 
 > Fig 1a: distributions of ratings
 
-???- question "How did you generate these values?"
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/unnamed-chunk-8-1.png)
 
-    By doing the actual analysis on simulated data.
-
-    The simulated data is created by
-    [this script](https://github.com/richelbilderbeek/paper_k3_ratings/blob/main/scripts/create_simulated_ratings.R)
+> Fig 1b: distributions of ratings,
+> for all formations with the most prolific group of text writers
 
 ## Results
 
