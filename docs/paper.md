@@ -129,7 +129,7 @@ has only written songs for the first three formations.
 For those first three formations, however, the amount of songs
 is still assumed to be big enough.
 
-### Obtaing ratings by fan
+### Obtaining fan ratings
 
 We obtain ratings (which are values from
 1 to 10, where 1 is worst and 10 is best)
@@ -225,7 +225,7 @@ We also show the distributions of the ratings:
 ### Songs remain the same
 
 To determine if all songs have remained the same, even though the
-composition of lyrics writern groups have sometimes changed,
+composition of lyrics writer groups have sometimes changed,
 topic modelling will used.
 
 ```text
