@@ -24,6 +24,7 @@ Currently, the analysis uses fake data.
 
 ```{r}
 library(testthat)
+library(ggsignif)
 ```
 
 ## Reading the data
@@ -178,8 +179,6 @@ knitr::kable(get_stats_table(ratings_per_formation))
 General function:
 
 ```{r}
-library(ggsignif)
-
 plot_ratings_with_indicators <- function(ratings_per_formation) {
   p <- plot_ratings(ratings_per_formation)
   t_all <- get_stats_table(ratings_per_formation)
