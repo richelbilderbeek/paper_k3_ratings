@@ -31,6 +31,13 @@ In such a setting, does the personality of the singers
 matter at all? Or, in other words, are all members
 exchangable with equally qualified artists?
 
+There exist bands that have driven replacabability
+of its members to an extreme, such as
+AKB48 and Morning Musume, which have a rotational
+schedule. However, imagine a steady formation of singers
+that lasts several albums. Would these singers
+have an imfluence?
+
 The ideal dataset would be a band that
 is highly commercial, has had produced many songs,
 has had multiple artist formations, while having
@@ -46,7 +53,6 @@ which is highly commercial, is currently in its fourth formation,
 has produced more than twenty CDs, written by mostly the
 same group of writers, produced by the same producers.
 
-
 ???- question "What are the different K3 formations?"
 
     These are the K3 formations,
@@ -60,6 +66,26 @@ same group of writers, produced by the same producers.
     4        |Hanne, Julia, Marthe
 
     > Table 1: K3 formations
+
+The members of K3 are -among others- selected for their hair color:
+each formation has a singer with red, black and blond hair.
+This branding is an indicator of K3 being commercial.
+However, each of the three singer formations may nevertheless
+have had an effect:
+
+- The second formation had the sugarsweet Kristel replaced by the
+  more naughty (Dutch!) Josje. 
+  One may suspect that lyrics have
+  changed along and have gotten naughtier too
+- The third formation is a complete replacement from older singers
+  to a new young formation of singers.
+  One may suspect that lyrics have
+  changed along and have gotten a new, young, fresh vibe.
+- The fourth formation had Klaasje replaced by Julia.
+  The reason behind this is that Klaasje wanted to focus on her
+  classical career.
+  Here, the melody of the songs may have changed to resemble
+  the decrease in classical influences
 
 One confounding factor that may cause the intrinsic
 K3 song quality to change is, simply, time:
