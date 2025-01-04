@@ -254,6 +254,18 @@ To determine if all songs have remained the same, even though the
 composition of lyrics writer groups have sometimes changed,
 topic modelling will used.
 
+- Use R package `stylo`
+- Remove Dutch stop words
+- Of each song, collect the 20 most used words and their frequency
+- Code this is a 20D vector
+- Cluster analysis
+- Determine clusters
+
+Pilot:
+
+- Songs from other groups
+
+
 ```text
 TODO
 ```
