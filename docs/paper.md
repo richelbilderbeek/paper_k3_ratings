@@ -179,6 +179,7 @@ This, however, works just as fine four our hypotheses.
 
 ### Obtaining fan ratings
 
+
 We obtain ratings (which are values from
 1 to 10, where 1 is worst and 10 is best)
 from two websites in which fans
@@ -191,7 +192,15 @@ Note that the author has been involved heavily with one of these resources.
 However, the author has no favorite formation
 and has never structurally analysed his own ratings before
 the experiment of this paper. It was the author's familiarity with
-the work of K3 that made him realize that it is an excellent dataset.
+the work of K3 that made him realize that this band is an excellent dataset
+to answer the hypotheses.
+
+!!! warning "How to obtain the ratings is dependent on possible co-author"
+
+    This section is just a draft: a possible co-author
+    has been contacted and he may suggest better ways to do so.
+
+To obtain these ratings ...
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
