@@ -5,6 +5,30 @@ if(!file.exists(target_filename)) setwd("..")
 target_filename <- paste0(getwd(), "/docs/analysis/ratings.csv")
 testthat::expect_true(file.exists(target_filename))
 
+
+
+average_rating_per_formation <- tibble::tribble(
+  ~formation, ~average_rating,
+  1, 8.0,
+  2, 7.5,
+  3, 7.0,
+  4, 6.5
+)
+testthat::expect_true(
+  all(
+    average_rating_per_formation$formation %in% 
+      heyahmama::get_formations_wide()$formation
+  )
+)
+
+heyahmama::get_writers_groups()
+
+average_rating_difference_per_writers_group <- tibble::tribble(
+  ~group_id, ~average_rating_difference,
+  0        , 0.5
+)
+
+
 create_simulated_ratings <- function(n_ratings = 1000) {
   
   songs <- dplyr::select(heyahmama::get_songs(), cd_title, song_title)
