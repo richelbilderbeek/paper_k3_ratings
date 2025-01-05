@@ -134,7 +134,16 @@ the R package `heyahmama` is used,
 which is a package containing information about K3,
 including functions to easily work with the data.
 
-Songs set A is to use all K3 songs. However,
+Songs set A is to use all K3 songs with lyrics.
+There is one song that has no lyrics and this
+song is useless to our hypotheses.
+
+???- question "Which song does not have lyrics?"
+
+    'Oya heya' currently is the only song without lyrics,
+    as performed by Josje, Karen and Kristel.
+
+However,
 K3 songs are re-used by other formations as well.
 This is no problem for our hypothesis: we assume
 the song is written for the first formation that
