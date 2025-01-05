@@ -53,6 +53,7 @@ which is highly commercial, is currently in its fourth formation,
 has produced more than twenty CDs, written by mostly the
 same group of writers, produced by the same producers.
 
+
 ???- question "What are the different K3 formations?"
 
     These are the K3 formations,
@@ -117,12 +118,15 @@ personality of the band members matters.
 
 ```mermaid
 flowchart TD
-  all[All songs]
-  studio_albums[Songs set A: 270 songs]
-  same_composers[Songs set B: 185 songs]
+  all[Songs set A: all ? songs, H1]
+  unique_songs[Songs set B: all ? unique songs, H1]
+  same_composers[Songs set C: all ? songs with same composers, H1 and H2]
+  unique_songs_with_same_composers[Songs set D: all ? unique songs with same composers, H1 and H2]
 
-  all --> |Songs on studio albums|studio_albums
-  studio_albums --> |Most prolific group of composers|same_composers
+  all --> |Unique songs|unique_songs
+  unique_songs --> |Most prolific group of composers|unique_songs_with_same_composers
+  all --> |Most prolific group of composers| same_composers
+  same_composers --> |Unique songs| unique_songs_with_same_composers
 ```
 
 To select the songs used in this research,
@@ -130,30 +134,39 @@ the R package `heyahmama` is used,
 which is a package containing information about K3,
 including functions to easily work with the data.
 
-Our first filter is to use only songs that are found on studio albums.
-K3 produces multiple types of CDs: studio albums,
-soundtrack albums, compilation albums, live albums and singles.
-The songs excluded are those on soundtrack albums,
-as these are not included in the `hayahmama` package
-[yet](https://github.com/richelbilderbeek/heyahmama/issues/10).
-Songs set A comprises all songs present on all K3 CDs,
-which is use for hypothesis 1.
+Songs set A is to use all K3 songs. However,
+K3 songs are re-used by other formations as well.
+This is no problem for our hypothesis: we assume
+the song is written for the first formation that
+performed it. One problem with this set, is that
+the singers have noticably different voices, hence
+fans may rate the version with their favorite singer(s)
+higher.
 
-Behind all these songs have been 5 different groups of
+Song set B is to use all K3 songs that are
+recorded for exactly one formation.
+This removes the effect of different ratings per song,
+as fans do have their favorite singers.
+One problem with this set is that it is noticably smaller: 
+K3 has a tendency to re-use songs and put these on a 
+compilation CD or a second CD of a new release by a newer formation. 
+
+Songs set C and D are the songs that have been written
+by the most prolific group of composers.
+Behind all K3 songs have been 5 different groups of
 composers, with big overlap of the composers in each group.
-Songs set B is the subset of songs set A where the songs are written
-by the most prolific group of composers,
-which is used for hypothesis 2.
+Songs set C comprises all songs written
+by the most prolific group of composers. Songs set D consists
+out of the songs that are unique and are written by the same composers.
+The main problem of these songs sets are, besides a reduced songs set,
+that the group of most prolific composers,
+has only written songs for the first three formations.
+This, however, works just as fine four our hypotheses.
 
 ???- question "Who is in the most prolific group of K3 composers?"
 
     These are Alain Vande Putte, Miguel Wiels and Peter Gillis,
     as can be seen in the `heyahmama` 'Composers' vignette.
-
-The group of most prolific composers, however,
-has only written songs for the first three formations.
-For those first three formations, however, the amount of songs
-is still assumed to be big enough.
 
 ### Obtaining fan ratings
 
@@ -164,6 +177,12 @@ have rated K3 songs,
 which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews)
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
 Ratings below one are set to one, where ratings above ten are set to ten.
+
+Note that the author has been involved heavily with one of these resources.
+However, the author has no favorite formation
+and has never structurally analysed his own ratings before
+the experiment of this paper. It was the author's familiarity with
+the work of K3 that made him realize that it is an excellent dataset.
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
@@ -188,9 +207,9 @@ song quality.
 A base value of alpha of 0.05 is used,
 as there has not been done any previous research on this.
 A Bonferroni correction is used to take multiple tests into consideration,
-which results in an alpha value of (0.05 / 6 =) 0.0083 for dataset A (which
-has 4 K3 formations)
-and an alpha value of (0.05 / 3 =) 0.017 for dataset B (which
+which results in an alpha value of (0.05 / 6 =) 0.0083 for datasets A and B
+(which have 4 K3 formations)
+and an alpha value of (0.05 / 3 =) 0.017 for datasets C and D (which
 has 3 K3 formations).
 
 If the p value if below that alpha value,
@@ -201,7 +220,7 @@ Else, we will conclude that the two formations
 have produced songs of equal perceived quality.
 
 We compare the distributions between all combinations of ratings,
-as shown in tables 4a and 4b.
+as shown in tables 4a-4d.
 
 ???- question "How did you generate these tables?"
 
@@ -220,6 +239,19 @@ Formation A|Formation B|p-value|Alpha value|Are distributions the same?
 3 | 4 | 0.3212295 | 0.0083333 | TRUE
 
 > Table 4a: overview of statistical tests between all formations
+> for all songs
+
+Formation A|Formation B|p-value|Alpha value|Are distributions the same?
+---|---|---------|---------|---------
+1 | 2 | 0.0284633 | 0.0083333 | TRUE
+1 | 3 | 0.0000000 | 0.0083333 | FALSE
+1 | 4 | 0.0000000 | 0.0083333 | FALSE
+2 | 3 | 0.0068141 | 0.0083333 | FALSE
+2 | 4 | 0.0012854 | 0.0083333 | FALSE
+3 | 4 | 0.3212295 | 0.0083333 | TRUE
+
+> Table 4b: overview of statistical tests between all formations
+> for all songs performed uniquely by one formation
 
 Formation A|Formation B|p-value|Alpha value|Are distributions the same?
 ---|---|---------|---------|---------
@@ -227,8 +259,18 @@ Formation A|Formation B|p-value|Alpha value|Are distributions the same?
 1 | 3 | 0.0000000 | 0.0166667 | FALSE
 2 | 3 | 0.0068141 | 0.0166667 | FALSE
 
-> Table 4b: overview of statistical tests between all formations with
+> Table 4c: overview of statistical tests between all formations with
 > the most prolific group of text writers
+
+Formation A|Formation B|p-value|Alpha value|Are distributions the same?
+---|---|---------|---------|---------
+1 | 2 | 0.0284633 | 0.0166667 | TRUE
+1 | 3 | 0.0000000 | 0.0166667 | FALSE
+2 | 3 | 0.0068141 | 0.0166667 | FALSE
+
+> Table 4d: overview of statistical tests between all formations with
+> the most prolific group of text writers
+> for all songs performed uniquely by one formation
 
 We also show the distributions of the ratings:
 
@@ -242,11 +284,24 @@ We also show the distributions of the ratings:
 ![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_4-1.png)
 
 > Fig 1a: distributions of ratings
+> for all songs
+
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_4-1.png)
+
+> Fig 1b: distributions of ratings
+> for all songs performed uniquely by one formation
 
 ![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_3-1.png)
 
-> Fig 1b: distributions of ratings,
+> Fig 1c: distributions of ratings,
+> for all songs
 > for all formations with the most prolific group of text writers
+
+![Distributions of ratings](analysis/analysis_files/figure-markdown_strict/plot_ratings_with_indicators_3-1.png)
+
+> Fig 1d: distributions of ratings,
+> for all formations with the most prolific group of text writers
+> for all songs performed uniquely by one formation
 
 ### Songs remain the same
 
