@@ -36,7 +36,7 @@ of its members to an extreme, such as
 AKB48 and Morning Musume, which have a rotational
 schedule. However, imagine a steady formation of singers
 that lasts several albums. Would these singers
-have an imfluence?
+have an influence?
 
 The ideal dataset would be a band that
 is highly commercial, has had produced many songs,
