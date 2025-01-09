@@ -116,6 +116,8 @@ personality of the band members matters.
 
 ### Selection of songs
 
+<!-- markdownlint-disable MD013 --><!-- Mermaid markdown cannot be split up over lines, hence will break 80 characters per line -->
+
 ```mermaid
 flowchart TD
   all[Songs set A: all ? songs, H1]
@@ -128,6 +130,8 @@ flowchart TD
   all --> |Most prolific group of composers| same_composers
   same_composers --> |Unique songs| unique_songs_with_same_composers
 ```
+
+<!-- markdownlint-enable MD013 -->
 
 To select the songs used in this research,
 the R package `heyahmama` is used,
