@@ -31,7 +31,7 @@ In such a setting, does the personality of the singers
 matter at all? Or, in other words, are all members
 exchangable with equally qualified artists?
 
-There exist bands that have driven replacabability
+There exist bands that have driven replaceability
 of its members to an extreme, such as
 AKB48 and Morning Musume, which have a rotational
 schedule. However, imagine a steady formation of singers
@@ -74,7 +74,7 @@ This branding is an indicator of K3 being commercial.
 However, each of the three singer formations may nevertheless
 have had an effect:
 
-- The second formation had the sugarsweet Kristel replaced by the
+- The second formation had the sugar-sweet Kristel replaced by the
   more naughty (Dutch!) Josje. 
   One may suspect that lyrics have
   changed along and have gotten naughtier too
@@ -148,7 +148,7 @@ K3 songs are re-used by other formations as well.
 This is no problem for our hypothesis: we assume
 the song is written for the first formation that
 performed it. One problem with this set, is that
-the singers have noticably different voices, hence
+the singers have noticeably different voices, hence
 fans may rate the version with their favorite singer(s)
 higher.
 
@@ -156,7 +156,7 @@ Song set B is to use all K3 songs that are
 recorded for exactly one formation.
 This removes the effect of different ratings per song,
 as fans do have their favorite singers.
-One problem with this set is that it is noticably smaller: 
+One problem with this set is that it is noticeably smaller: 
 K3 has a tendency to re-use songs and put these on a 
 compilation CD or a second CD of a new release by a newer formation. 
 
