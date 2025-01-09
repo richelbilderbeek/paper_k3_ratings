@@ -75,7 +75,7 @@ However, each of the three singer formations may nevertheless
 have had an effect:
 
 - The second formation had the sugar-sweet Kristel replaced by the
-  more naughty (Dutch!) Josje. 
+  more naughty (Dutch!) Josje.
   One may suspect that lyrics have
   changed along and have gotten naughtier too
 - The third formation is a complete replacement from older singers
@@ -156,9 +156,9 @@ Song set B is to use all K3 songs that are
 recorded for exactly one formation.
 This removes the effect of different ratings per song,
 as fans do have their favorite singers.
-One problem with this set is that it is noticeably smaller: 
-K3 has a tendency to re-use songs and put these on a 
-compilation CD or a second CD of a new release by a newer formation. 
+One problem with this set is that it is noticeably smaller:
+K3 has a tendency to re-use songs and put these on a
+compilation CD or a second CD of a new release by a newer formation.
 
 Songs set C and D are the songs that have been written
 by the most prolific group of composers.
