@@ -41,7 +41,7 @@ There are `r n_ratings` ratings.
 Connecting the ratings to the formations:
 
 ```{r}
-songs <- dplyr::select(heyahmama::get_songs(), cd_title, song_title)
+songs <- dplyr::select(heyahmama::get_releases(), cd_title, song_title)
 n_songs <- nrow(songs)
 ```
 
