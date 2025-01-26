@@ -5,7 +5,13 @@ name: Check spelling
 # 16th as the first letter of this repo is the 16th letter in the alphabet.
 on:
   push:
+    paths:
+      - README.md
+      - **/*.md
   pull_request:
+    paths:
+      - README.md
+      - **/*.md
   schedule:
   - cron: "0 0 16 * *"
 

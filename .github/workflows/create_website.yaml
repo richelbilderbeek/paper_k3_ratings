@@ -2,7 +2,15 @@ name: Create website
 
 on:
   push:
+    paths:
+      - mkdocs.yaml
+      - **/*.md
+      - .github/workflow/create_website.yaml
   pull_request:
+    paths:
+      - mkdocs.yaml
+      - **/*.md
+      - .github/workflow/create_website.yaml
 
 jobs:
   deploy:
