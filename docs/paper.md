@@ -1,5 +1,7 @@
 # Are members exchangable in commercial music bands? A preregistration
 
+- Authors: Richel J.C. Bilderbeek and Mark Adrianusovitch Wiering
+
 ## Abstract
 
 Some commercial music bands have had multiple formations,
