@@ -6,12 +6,12 @@ name: Check spelling
 on:
   push:
     paths:
-      - README.md
-      - **/*.md
+      - .github/workflows/check_spelling.yaml
+      - '**.md'
   pull_request:
     paths:
-      - README.md
-      - **/*.md
+      - .github/workflows/check_spelling.yaml
+      - '**.md'
   schedule:
   - cron: "0 0 16 * *"
 
