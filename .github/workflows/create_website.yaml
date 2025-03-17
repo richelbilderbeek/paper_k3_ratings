@@ -3,12 +3,12 @@ name: Create website
 on:
   push:
     paths:
-      - mkdocs.yaml
+      - mkdocs.yml
       - '**.md'
       - .github/workflow/create_website.yaml
   pull_request:
     paths:
-      - mkdocs.yaml
+      - mkdocs.yml
       - '**.md'
       - .github/workflow/create_website.yaml
 
