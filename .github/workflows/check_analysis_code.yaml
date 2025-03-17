@@ -20,7 +20,7 @@ on:
 
 
 jobs:
-  check-analysis-code:
+  check_analysis_code:
     runs-on: ubuntu-latest
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
