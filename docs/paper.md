@@ -185,7 +185,6 @@ This, however, works just as fine four our hypotheses.
 
 ### Obtaining fan ratings
 
-
 We obtain ratings (which are values from
 1 to 10, where 1 is worst and 10 is best)
 from two websites in which fans
@@ -206,7 +205,21 @@ to answer the hypotheses.
     This section is just a draft: a possible co-author
     has been contacted and he may suggest better ways to do so.
 
-To obtain these ratings ...
+For [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/),
+a webcrawler was used to read though all posts of each thread. For this
+website, each thread is connected to a song. If a post provides
+a rating, the webcrawler collects (1) the song's title, (2) the song's rating,
+(3) the name of person rating the song, (4) the post of the URL.
+If a person has rated the same song multiple times, the last rating is used,
+as this is the more informed rating.
+
+For [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews),
+a webcrawler was used to read though all songs. For this
+website, each song is rated by zero, one or more people.
+If a post has at least 1 rating, the webcrawler collects
+(1) the song's title, (2) the song's rating,
+(3) the name of person rating the song, (4) the post of the URL.
+At this website, there are no duplicates.
 
 The collected datasets can be downloaded from
 [https://github.com/richelbilderbeek/paper_k3_ratings](https://github.com/richelbilderbeek/paper_k3_ratings).
