@@ -193,11 +193,10 @@ which are [https://github.com/richelbilderbeek/k3reviews](https://github.com/ric
 and [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/).
 Ratings below one are set to one, where ratings above ten are set to ten.
 
-Note that the author has been involved heavily with one of these resources.
-However, the author has no favorite formation
-and has never structurally analysed his own ratings before
-the experiment of this paper. It was the author's familiarity with
-the work of K3 that made him realize that this band is an excellent dataset
+Note that the authors has been involved heavily with one of these resources.
+However, the authors have never structurally analysed their own ratings before
+the experiment of this paper. It was the authors' familiarity with
+the work of K3 that made them realize that this band is an excellent dataset
 to answer the hypotheses.
 
 !!! warning "How to obtain the ratings is dependent on possible co-author"
@@ -206,7 +205,8 @@ to answer the hypotheses.
     has been contacted and he may suggest better ways to do so.
 
 For [forum.popjustice.com](https://forum.popjustice.com/threads/its-the-k3-singles-rate.62219/),
-a webcrawler was used to read though all posts of each thread. For this
+a webcrawler, `[name of webcrawler]`,
+was used to read though all posts of each thread. For this
 website, each thread is connected to a song. If a post provides
 a rating, the webcrawler collects (1) the song's title, (2) the song's rating,
 (3) the name of person rating the song, (4) the post of the URL.
@@ -214,7 +214,8 @@ If a person has rated the same song multiple times, the last rating is used,
 as this is the more informed rating.
 
 For [https://github.com/richelbilderbeek/k3reviews](https://github.com/richelbilderbeek/k3reviews),
-a webcrawler was used to read though all songs. For this
+a webcrawler, `[name of webcrawler]`,
+was used to read though all songs. For this
 website, each song is rated by zero, one or more people.
 If a post has at least 1 rating, the webcrawler collects
 (1) the song's title, (2) the song's rating,
